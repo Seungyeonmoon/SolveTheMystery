@@ -2,4 +2,4 @@
 A Python text-based adventure game
 
 ## To run the file
-> python main.py
+''python main.py''
