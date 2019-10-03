@@ -19,15 +19,17 @@
 
 # Rooms to explore:
     # Kitchen, host's bedroom, Jay's room, Megan's room, Abriella's room
+# TYPE: ____ (room)
 # In Kitchen: masion, oven, sink with many dishes
-    # masion, have to open with a bronze key
+    # TYPE: cabinet, oven, or sink
+    # cabinet, have to open with a bronze key
         # in it, there is a golden key
     # on the stove, a cattle
     # no clues in sink, but can turn on water tab
-# In master bedroom (host's bedroom)
+# In master bedroom (host's bedroom): table
     # Need silver key to go into the room
     # Bedside table, a bronze key is found
-# Host's office
+# Host's office: fireplace, safe
     # Need a golden key to open
         # In the room, a fire place, need to turn off fire
             # pour water from sink into kettle & turn off fire
