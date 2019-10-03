@@ -5,8 +5,6 @@
 # Abriella is Jay and Megan's consin
 # their parents are all sibliings
 
-# It is a murder mystery
-# at the end of the game, you have to determine who the murderer is
 # The host of this dinner was killed while they were having dinner
 # Host was sitting at the end of the table with you and Jay beside her,
 # Abriella was sitting next to you and Megan next to Jay
