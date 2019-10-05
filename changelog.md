@@ -1,5 +1,5 @@
 # Solve the Mystery Changelog
 
 
-## Prelease version
+## Prerelease version
 - created main game file
