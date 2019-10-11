@@ -1,3 +1,8 @@
+# Seungyeon Moon
+# # CS30 P.1
+# Oct.11/2019
+# Pseudocode for the game
+
 # Detective _____ (insert player's name) is invited to a dinner at a mansion.
 # 3 other people were invited to a masion: Jay, Megan, Abriella
 
