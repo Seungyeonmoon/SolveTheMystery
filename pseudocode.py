@@ -61,8 +61,8 @@
             # Host: old, but healty, had 3 siblings, parents of Jay, Megan,
                 # Abriella, rich
             # Jay: in his 30s, has a high blood pressure
-            # Megan: in her 30s, Asthma
-            # Abriella: Youngest of the cousins, in her 20s
+            # Megan: in her 30s
+            # Abriella: Youngest of the cousins, in her 20s, Asthma
 # Abriella's room
     # nothing to be found
 

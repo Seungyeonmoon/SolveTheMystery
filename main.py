@@ -4,23 +4,25 @@ rooms = ['living room', 'bedroom 1', 'bedroom 2']
 found_items = ['notebook']
 missing_items = ['golden key', 'silver key', 'cup']
 
+rooms = {
+'Dining room': 'where the murder happened',
+'Back door': {'well': 'poison bottle'},
+'Lilian\'s bedroom': {'bedside table': 'little key'},
+'Lilian\'s office': {'fireplace': 'note', 'safe': 'bronze key'},
+'Jay\'s bedroom': {'coat hanger': 'recipt'},
+'Megan\'s bedroom': {'under the bed': 'notebook'},
+'Abriella\'s bedroom': 'nothing'
+}
 
-# prints out numerical list of suspects
-print(f"Suspects:")
-for persons in suspects:
-    print(f"{suspects.index(persons)+1}. {persons.title()}")
-
-# prints out numerical list of rooms
-print(f"Rooms:")
-for area in rooms:
-    print(f"{rooms.index(area)+1}. {area.title()}")
-
-# prints out numerical list of found items
-print(f"Available items:")
-for items in found_items:
-    print(f"{found_items.index(items)+1}. {items.title()}")
-
-# prints out numerical list of missing items
-print(f"Unavailable items:")
-for items in missing_items:
-    print(f"{missing_items.index(items)+1}. {items.title()}")
+characters = {
+'Lilian': {'age': 'in her 60s', 'illness': 'heart problems'},
+'Jay': {'age': 'in his 30s', 'illness': 'high blood pressure'},
+'Megan': {'age': 'in her 30s', 'illness': 'no illness'},
+'Abriella': {'age': 'in her 20s', 'illness': 'asthma'}
+}
+for person, description in characters.items():
+    print(f"{person}:")
+    age = f"{description['age']}"
+    illness = f"{description['illness']}"
+    print(f"\t{person} is {age}.")
+    print(f"\t{person} has {illness}.")
