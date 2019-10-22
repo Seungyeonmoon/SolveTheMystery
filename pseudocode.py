@@ -25,7 +25,7 @@
         # sink, but can turn on water tab
         # pantry, a bucket on the floor
 # Back door:
-    # need little key to open the door
+    # need bronze key to open the door
         # outside, a well
             # well has rope
                 # pull up?
