@@ -1,6 +1,6 @@
 # Seungyeon Moon
 # CS30 P.1
-# Oct.22/2019
+# Oct.25/2019
 # main file for the game
 
 # list of rooms and the items that you can find
