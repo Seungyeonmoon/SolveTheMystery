@@ -1,9 +1,9 @@
 # Seungyeon Moon
 # CS30 P.1
 # Oct.25/2019
-# main file for the game
+# Main file for the game
 
-# list of rooms and the items that you can find
+# dictionary of rooms and the items that you can find
 rooms = {
         'Dining room': 'where the murder happened',
         'Back door': {'well': 'poison bottle'},
@@ -24,7 +24,7 @@ for room, find in rooms.items():
 
 print("")
 
-# List of characters in the game with their age and illness
+# dictionary of characters in the game with their age and illness
 characters = {
              'Lilian': {'age': 'in her 60s', 'illness': 'heart problems'},
              'Jay': {'age': 'in his 30s', 'illness': 'high blood pressure'},
@@ -40,7 +40,7 @@ for person, description in characters.items():
 
 print("")
 
-# items that need to be found to countinue the game
+# dictionary of items that need to be found to countinue the game
 missing_items = {
                 'Lilian\'s office': 'golden key',
                 'Lilian\'s bedroom': 'silver key',
