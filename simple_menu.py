@@ -30,10 +30,12 @@ elif choice == 'explore rooms':
     room_choice = input(f"")
     if room_choice == 'dining room':
         print(f"The Dining room is where the murder happened.")
+    # if room choice is abriella's bedroom
     elif room_choice == "abriella's bedroom":
         print(f"There is nothing in Abriella's room.")
+    # if room choice is back door
     elif room_choice == 'back door':
-        print("The back door is locked.")
+        print("The door is locked.")
         item_choice = input(f"Use an item to open the door:")
         if item_choice == 'bronze key':
             print(f"There is a well, with a rope and nothing to pull up the water.")
@@ -44,8 +46,28 @@ elif choice == 'explore rooms':
                 print("That is the wrong item.")
         else:
             print("That is the wrong item.")
-    elif room_choice == 'lilian\'s office':
-        print(f"There is a bedside table")
+    # if room choice is lilian's office
+    elif room_choice == "lilian's office":
+        print("The door is locked.")
+        item_choice = input(f"Use an item to open the door:")
+        if item_choice == 'golden key':
+            print(f"There is a fireplace and a safe.")
+            place_choice = input(f"Which one would you like to inspect? ")
+            if place_choice == 'fireplace'
+            elif place_choice == 'safe'
+            else:
+                print(f"{place_choice} is not an option.")
+        else:
+            print("That is the wrong item.")
+    elif room_choice == "lilian's bedroom":
+        print("The door is locked.")
+        item_choice = input(f"Use an item to open the door:")
+        if item_choice == 'silver key':
+            print(f"There is a bedside table.")
+            print("")
+        else:
+            print(f"{place_choice} is not an option.")
+
 
     else:
         print(f"{room_choice} is not one of the choices.")
