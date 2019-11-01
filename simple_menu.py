@@ -52,11 +52,6 @@ elif choice == 'explore rooms':
         item_choice = input(f"Use an item to open the door:")
         if item_choice == 'golden key':
             print(f"There is a fireplace and a safe.")
-            place_choice = input(f"Which one would you like to inspect? ")
-            if place_choice == 'fireplace'
-            elif place_choice == 'safe'
-            else:
-                print(f"{place_choice} is not an option.")
         else:
             print("That is the wrong item.")
     elif room_choice == "lilian's bedroom":
