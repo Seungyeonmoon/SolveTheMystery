@@ -3,7 +3,7 @@ rooms = {
         'Kitchen': {'cabinet': 'golden key',
                     'stove': 'cattle',
                     'pantry': 'bucket on the floor',
-                    'sink', 'turn on water tap'
+                    'sink': 'turn on water tap'
                     },
         'Back door': {'well': 'poison bottle'},
         'Lilian\'s room': {'bedside table': 'little key'},
@@ -15,7 +15,35 @@ rooms = {
 
 inventory = ['notebook']
 
-actions = ['check inventory', 'explore rooms']
+actions = ['check inventory', 'explore rooms', 'quit']
+directions = ['forward', 'backward', 'left', 'right']
+
+def play():
+    # directions & actions
+    action = ['explore rooms', 'check inventory', 'quit']
+    directions = ['forward', 'backward', 'left', 'right']
+    print(action)
+    while True:
+        action_choice = player_choice("\nWhat would you like to do?")
+        if action_choice in action:
+            print(f"{action_choice.title}")
+            if action_choice == 'quit':
+                sys.exit()
+            elif action_choice == 'check inventory':
+                print(f"{inventory}")
+            elif action_choice == 'explore rooms':
+                choose_room()
+            else:
+                print(f"{choice.title()} is not one of the choices.")
+
+def player_choice(text):
+    """turn user input and convert it to lowercase"""
+    action_choice = input(text)
+    return action_choice.lower()
+
+def choose_room():
+    """user selects which room to go to"""
+
 
 print(f"\nWhat would you like to do?")
 for action in actions:
