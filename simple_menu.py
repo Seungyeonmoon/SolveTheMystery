@@ -1,4 +1,3 @@
-chsh -s /bin/zsh
 rooms = {
         "dining room": 'where the murder happened',
         "kitchen": {'cabinet': 'golden key',
@@ -32,7 +31,7 @@ def play():
             elif action_choice == 'explore rooms':
                 choose_room()
             else:
-                print(f"{choice.title(} is not one of the choices")
+                print(f"{choice.title()} is not one of the choices.")
         else:
             print(f"{player_choice.title()} is not one of the choices.")
 
@@ -62,17 +61,18 @@ def print_actions(action):
     """printing actions in the right format"""
     print("What would you like to do?")
     for action_choice in action:
-        print(f"* {action_choice.upper()}")
+        print(f"{action.index(action_choice)+1}. {action_choice.upper()}")
 
 
 def print_rooms(rooms):
     """printing rooms that are in the right format"""
     for room_choice in rooms.keys():
-        print(f"* {room_choice.upper()}")
+        print(f"{rooms.index(room_choice)+1}. {room_choice.upper()}")
+
 
 def print_items(inventory):
     """printing inventory in the right format"""
     for items in inventory():
-        print(f"* {items.upper()}")
+        print(f"{inventory.index(items)+1}.{items.upper()}")
 
 play()
