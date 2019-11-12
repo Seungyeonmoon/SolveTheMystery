@@ -22,7 +22,7 @@ def play():
     action = ['explore rooms', 'check inventory', 'quit']
     while True:
         print_actions(action)
-        action_choice = player_choice("")
+        
         if action_choice in action:
             if action_choice == '3':
                 break
@@ -58,11 +58,11 @@ def choose_room():
             print(f"{room_choice.title()} is not one of the choices.")
 
 
-def print_actions(action):
-    """printing actions in the right format"""
-    print("What would you like to do?")
-    for action_choice in action:
-        print(f"{action.index(action_choice)+1}. {action_choice.upper()}")
+# def print_actions(action):
+#     """printing actions in the right format"""
+#     print("What would you like to do?")
+#     for action_choice in action:
+#         print(f"{action.index(action_choice)+1}. {action_choice.upper()}")
 
 
 def print_rooms(rooms):
