@@ -31,7 +31,8 @@ def play():
             elif action_choice == 'explore rooms':
                 choose_room()
             else:
-                print(f"{choice.title()} is not one of the choices.")
+                text = choice.title()
+                print(f"{text} is not one of the choices.")
         else:
             print(f"{player_choice.title()} is not one of the choices.")
 
