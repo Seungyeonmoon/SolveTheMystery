@@ -24,23 +24,23 @@ def play():
         print_actions(action)
         action_choice = player_choice("")
         if action_choice in action:
-            if action_choice == 'quit':
+            if action_choice == '3':
                 break
-            elif action_choice == 'check inventory':
+            elif action_choice == '2':
                 print_items(inventory)
-            elif action_choice == 'explore rooms':
+            elif action_choice == '1':
                 choose_room()
             else:
                 text = choice.title()
-                print(f"{text} is not one of the choices.")
+                print(f"Invalid choice.")
         else:
-            print(f"{player_choice.title()} is not one of the choices.")
+            print(f"Invalid choice.")
 
 
 def player_choice(text):
     """turn user input and convert it to lowercase"""
     action_choice = input(text)
-    return action_choice.lower()
+    return action_choice.int()
 
 
 def choose_room():
@@ -73,7 +73,7 @@ def print_rooms(rooms):
 
 def print_items(inventory):
     """printing inventory in the right format"""
-    for items in inventory():
-        print(f"{inventory.index(items)+1}.{items.upper()}")
+    for items in inventory:
+        print(f"{inventory.index(items)+1}. {items.upper()}")
 
 play()
