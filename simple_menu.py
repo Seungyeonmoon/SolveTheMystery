@@ -12,11 +12,11 @@ rooms = {
                     'sink': 'turn on water tap'
                     },
         "back door": {'well': 'poison bottle'},
-        "lilians room": {'bedside table': 'little key'},
-        "lilians office": {'fireplace': 'note', 'safe': 'bronze key'},
-        "jays room": {'coat hanger': 'recipt'},
-        "megans room": {'under the bed': 'notebook'},
-        "abriellas room": 'nothing to be found'
+        "lilian's room": {'bedside table': 'little key'},
+        "lilian's office": {'fireplace': 'note', 'safe': 'bronze key'},
+        "jay's room": {'coat hanger': 'recipt'},
+        "megan's room": {'under the bed': 'notebook'},
+        "abriella's room": 'nothing to be found'
         }
 
 
@@ -65,19 +65,19 @@ def print_actions(action):
     """printing actions in the right format"""
     print("What would you like to do?")
     for action_choice in action:
-        print(f"{action_choice.upper()}")
+        print(f"- {action_choice.upper()}")
 
 
 def print_rooms(rooms):
     """printing rooms that are in the right format"""
     for room_choice in rooms.keys():
-        print(f"{room_choice.upper()}")
+        print(f"- {room_choice.upper()}")
 
 
 def print_items(inventory):
     """printing inventory in the right format"""
     for items in inventory:
-        print(f"{items.upper()}")
+        print(f"- {items.upper()}")
 
 
 play()
