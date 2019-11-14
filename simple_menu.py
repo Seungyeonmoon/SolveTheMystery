@@ -29,7 +29,7 @@ def play():
     action = ['explore rooms', 'check inventory', 'quit']
     while True:
         print_actions(action)
-        action_choice = input("")
+        action_choice = player_choice("")
         if action_choice == 'quit':
             break
         elif action_choice == 'check inventory':
