@@ -3,3 +3,6 @@ Tasks:
     ✔ create changelog @done(2019-10-05 13:31) @project(Tasks)
     ✔ create main game file @done(2019-10-05 13:31) @project(Tasks)
     ✔ finish pseudocode @done(2019-10-05 13:31) @project(Tasks)
+
+game:
+    ✔ finish menu @done(2019-11-14 08:49) @project(game)
