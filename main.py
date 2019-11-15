@@ -1,54 +1,83 @@
 # Seungyeon Moon
 # CS30 P.1
-# Oct.25/2019
-# Main file for the game
+# Nov.15/2019
+# menu for the game
+import map
 
-# dictionary of rooms and the items that you can find
 rooms = {
-        'Dining room': 'where the murder happened',
-        'Back door': {'well': 'poison bottle'},
-        'Lilian\'s bedroom': {'bedside table': 'little key'},
-        'Lilian\'s office': {'fireplace': 'note', 'safe': 'bronze key'},
-        'Jay\'s bedroom': {'coat hanger': 'recipt'},
-        'Megan\'s bedroom': {'under the bed': 'notebook'},
-        'Abriella\'s bedroom': 'nothing to be found'
+        "dining room": 'where the murder happened',
+        "kitchen": {'cabinet': 'golden key',
+                    'stove': 'cattle',
+                    'pantry': 'bucket on the floor',
+                    'sink': 'turn on water tap'
+                    },
+        "back door": {'well': 'poison bottle'},
+        "lilian's room": {'bedside table': 'little key'},
+        "lilian's office": {'fireplace': 'note', 'safe': 'bronze key'},
+        "jay's room": {'coat hanger': 'recipt'},
+        "megan's room": {'under the bed': 'notebook'},
+        "abriella's room": 'nothing to be found'
         }
-for room, find in rooms.items():
-    if room == 'Dining room':
-        print(f"{room} is {find}.")
-    elif room == 'Abriella\'s bedroom':
-        print(f"There is {find} in {room}.")
-    else:
-        for where, thing in find.items():
-            print(f"In {room}, there is {where}, where you can find {thing}.")
 
-print("")
 
-# dictionary of characters in the game with their age and illness
-characters = {
-             'Lilian': {'age': 'in her 60s', 'illness': 'heart problems'},
-             'Jay': {'age': 'in his 30s', 'illness': 'high blood pressure'},
-             'Megan': {'age': 'in her 30s', 'illness': 'no illness'},
-             'Abriella': {'age': 'in her 20s', 'illness': 'asthma'}
-             }
-for person, description in characters.items():
-    print(f"{person}:")
-    age = f"{description['age']}"
-    illness = f"{description['illness']}"
-    print(f"\t{person} is {age}.")
-    print(f"\t{person} has {illness}.")
+inventory = ['notebook']
 
-print("")
 
-# dictionary of items that need to be found to countinue the game
-missing_items = {
-                'Lilian\'s office': 'golden key',
-                'Lilian\'s bedroom': 'silver key',
-                'back door': 'bronze key',
-                'cabinet': 'little key',
-                'well': 'bucket',
-                'fire': 'kettle with water',
-                'information': 'notebook'
-                }
-for place, items in missing_items.items():
-    print(f"You need to find {items} for {place}.")
+def play():
+    """looping through the game"""
+    # directions & actions
+    action = ['explore rooms', 'check inventory', 'quit']
+    while True:
+        print_actions(action)
+        action_choice = player_choice("")
+        if action_choice == 'quit':
+            break
+        elif action_choice == 'check inventory':
+            print_items(inventory)
+        elif action_choice == 'explore rooms':
+            choose_room()
+        else:
+            print(f"{action_choice} is not one of the choices.")
+
+
+def player_choice(text):
+    """turn user input and convert it to lowercase"""
+    action_choice = input(text)
+    return action_choice.lower()
+
+
+def choose_room():
+    """user selects which room to go to"""
+    print_rooms(rooms)
+    print("Type 'back' to go to main menu.")
+    while True:
+        print("Which room would you like to explore?")
+        room_choice = player_choice("")
+        if room_choice == 'back':
+            break
+        elif room_choice in rooms:
+            print(f"You are infront of {room_choice}.")
+        else:
+            print(f"{room_choice.title()} is not one of the choices.")
+
+
+def print_actions(action):
+    """printing actions in the right format"""
+    print("What would you like to do?")
+    for action_choice in action:
+        print(f"- {action_choice.upper()}")
+
+
+def print_rooms(rooms):
+    """printing rooms that are in the right format"""
+    for room_choice in rooms.keys():
+        print(f"- {room_choice.upper()}")
+
+
+def print_items(inventory):
+    """printing inventory in the right format"""
+    for items in inventory:
+        print(f"- {items.upper()}")
+
+
+play()
