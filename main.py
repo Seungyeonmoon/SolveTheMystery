@@ -5,22 +5,7 @@
 
 import map
 import inventory
-
-rooms = {
-        "dining room": 'where the murder happened',
-        "kitchen": {'cabinet': 'golden key',
-                    'stove': 'cattle',
-                    'pantry': 'bucket on the floor',
-                    'sink': 'turn on water tap'
-                    },
-        "back door": {'well': 'poison bottle'},
-        "lilian's room": {'bedside table': 'little key'},
-        "lilian's office": {'fireplace': 'note', 'safe': 'bronze key'},
-        "jay's room": {'coat hanger': 'recipt'},
-        "megan's room": {'under the bed': 'notebook'},
-        "abriella's room": 'nothing to be found'
-        }
-
+import rooms
 
 def play():
     """looping through the game"""
@@ -47,7 +32,7 @@ def player_choice(text):
 
 def choose_room():
     """user selects which room to go to"""
-    print_rooms(rooms)
+    rooms.print_rooms()
     print("Type 'back' to go to main menu.")
     while True:
         print("Which room would you like to explore?")
@@ -80,12 +65,6 @@ def print_actions(action):
     print("What would you like to do?")
     for action_choice in action:
         print(f"- {action_choice.upper()}")
-
-
-def print_rooms(rooms):
-    """printing rooms that are in the right format"""
-    for room_choice in rooms.keys():
-        print(f"- {room_choice.upper()}")
 
 
 play()
