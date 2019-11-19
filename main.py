@@ -1,7 +1,7 @@
 # Seungyeon Moon
 # CS30 P.1
 # Nov.15/2019
-# menu for the game
+# Menu for the game
 
 import map
 import inventory
@@ -17,7 +17,7 @@ def play():
         if action_choice == 'quit':
             break
         elif action_choice == 'check inventory':
-            choose_item()
+            map.choose_item()
         elif action_choice == 'explore rooms':
             choose_room()
         else:
@@ -43,21 +43,6 @@ def choose_room():
             print(f"You are infront of {room_choice}.")
         else:
             print(f"{room_choice.title()} is not one of the choices.")
-
-def choose_item():
-    """user selects which item to use"""
-    inventory.print_items()
-    print("Type 'back' to go to main menu.")
-    while True:
-        print("Which item would you like to use?")
-        item_choice = player_choice("")
-        if item_choice == 'back':
-            break
-        elif item_choice in inventory:
-            if item_choice == 'blueprint':
-                map.print_map()
-            else:
-                print("Type 'back' to go to main menu.")
 
 
 def print_actions(action):
