@@ -3,7 +3,6 @@
 # Nov.15/2019
 # Menu for the game
 
-import map
 import inventory
 import rooms
 
@@ -17,7 +16,7 @@ def play():
         if action_choice == 'quit':
             break
         elif action_choice == 'check inventory':
-            map.choose_item()
+            inventory.choose_item()
         elif action_choice == 'explore rooms':
             choose_room()
         else:
