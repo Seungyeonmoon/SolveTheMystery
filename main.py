@@ -18,7 +18,7 @@ def play():
         elif action_choice == 'check inventory':
             inventory.choose_item()
         elif action_choice == 'explore rooms':
-            choose_room()
+            rooms.choose_room()
         else:
             print(f"{action_choice} is not one of the choices.")
 
@@ -27,21 +27,6 @@ def player_choice(text):
     """turn user input and convert it to lowercase"""
     action_choice = input(text)
     return action_choice.lower()
-
-
-def choose_room():
-    """user selects which room to go to"""
-    rooms.print_rooms()
-    print("Type 'back' to go to main menu.")
-    while True:
-        print("Which room would you like to explore?")
-        room_choice = player_choice("")
-        if room_choice == 'back':
-            break
-        elif room_choice in rooms:
-            print(f"You are infront of {room_choice}.")
-        else:
-            print(f"{room_choice.title()} is not one of the choices.")
 
 
 def print_actions(action):
