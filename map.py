@@ -22,5 +22,3 @@ blueprint = [
 def print_map():
     for row in blueprint:
         print(row)
-
-print(print_map())
