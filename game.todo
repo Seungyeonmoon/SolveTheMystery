@@ -4,6 +4,8 @@ Tasks:
     ✔ create main game file @done(2019-10-05 13:31) @project(Tasks)
     ✔ finish pseudocode @done(2019-10-05 13:31) @project(Tasks)
 
-game:
+Game:
     ✔ finish menu @done(2019-11-14 08:49) @project(game)
-    ☐ create map for the game
+    ✔ create map for the game @done(2019-11-22 08:41) @project(game)
+    ✔ import map, inventory, rooms files into main file @done(2019-11-22 08:41) @project(game)
+    ☐

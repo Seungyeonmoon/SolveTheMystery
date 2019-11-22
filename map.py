@@ -14,9 +14,9 @@
 #     print(print_map)
 
 blueprint = [
-            ["Outside", "Kitchen", "Megan's room", "Jay's room", " "],
-            [" ", "Dining room" , "Hallway", "Hallway", "Lilian's office"],
-            [" ", " ", "Abriella's room", "Lilian's rooms", " "]
+            ["Outside", "Kitchen", "Megan's room", "Jay's room", "        "],
+            ["       ", "Dining room" , "Hallway", "Hallway", "Lilian's office"],
+            ["       ", "        ", "Abriella's room", "Lilian's rooms", " "]
             ]
 
 def print_map():
