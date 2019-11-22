@@ -7,6 +7,7 @@ import map
 
 inventory = ['notebook', 'blueprint']
 
+
 def print_items():
     """printing inventory in the right format"""
     for items in inventory:
