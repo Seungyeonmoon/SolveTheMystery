@@ -44,3 +44,65 @@ def player_choice(text):
     """turn user input and convert it to lowercase"""
     action_choice = input(text)
     return action_choice.lower()
+
+class Location:
+    """returns room locations"""
+    def __init__(self):
+        self.room
+
+
+class DineRoom(Location):
+    """starting position of the player"""
+    def __init__(self):
+        self.room = "Dining Room"
+
+
+class Outside(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Outside"
+
+
+class MegRoom(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Megan's room"
+
+
+class JayRoom(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Jay's room"
+
+
+class AbRoom(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Abriella's room"
+
+
+class LiRoom(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Lilian's room"
+
+class Kitchen(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Kitchen"
+
+
+class Hall(Location):
+    """nothing to obtain, empty room"""
+    def __init__(self):
+        self.room = "Hallway"
+
+
+class LiOffice(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Lilian's office"
+
+
+# class EmpRoom(Location):
+#     """blank part of masion"""
