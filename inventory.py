@@ -34,3 +34,25 @@ def player_choice(text):
     """turn user input and convert it to lowercase"""
     action_choice = input(text)
     return action_choice.lower()
+
+
+class Obtainable:
+    def __init__(self):
+        raise NotImplementedError("Do not create raw Obtainable items")
+
+
+class BronzeKey(Obtainable):
+    def __init__(self):
+        self.name = "bronze key"
+
+class GoldenKey(Obtainable):
+    def __init__(self):
+        self.name = "golden key"
+
+class SilverKey(Obtainable):
+    def __init__(self):
+        self.name = "silver key"
+
+class LittleKey(Obtainable):
+    def __init__(self):
+        self.name = "little key"

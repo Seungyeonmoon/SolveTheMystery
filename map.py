@@ -19,10 +19,10 @@ blueprint1 = [
             ["  ", "  ", "Abriella's room", "Lilian's rooms", "  "]
             ]
 
-
 # def print_map():
 #     for row in blueprint:
 #         print(row)
+
 
 class MapTile:
     """Map with x and y coordinates"""
@@ -30,77 +30,53 @@ class MapTile:
         self.x = x
         self.y = y
 
+    def name(self):
+        return self.name
 
-class Location:
-    """map with x and y coordinates"""
+    def intro_text(self):
+        raise NotImplementedError("Create a subclass instead")
+
+
+class Kitchen(MapTile):
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.i = 0
+        self.name = "Kitchen"
 
-
-class DineRoom(Location):
-    """starting position of the player"""
-    def __init__(self):
-        self.room = "Dining Room"
-
-
-class Outside(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Outside"
-
-
-class MegRoom(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Megan's room"
-
-
-class JayRoom(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Jay's room"
-
-
-class AbRoom(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Abriella's room"
-
-
-class LiRoom(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Lilian's room"
-
-class Kitchen(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Kitchen"
-
-
-class Hall(Location):
-    """nothing to obtain, empty room"""
-    def __init__(self):
-        self.room = "Hallway"
-
-
-class LiOffice(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Lilian's office"
-
-
-# class EmpRoom(Location):
-#     """blank part of masion"""
+        super().__init__(x, y)
 
 blueprint = [
-    # [Outside(0, 0), Kitchen(0, 1), MegRoom(0, 2), JayRoom(0, 3), Hall(0, 4)]
-    # [Hall(1, 0), DineRoom(1, 1), Hall(1, 2), Hall(1, 3), LiOffice(1, 4)]
-    # [EmpRoom(2, 0)]
-    [Outside, Kitchen, MegRoom, JayRoom]
+    [Kitchen(0, 0)]
 ]
+print(f"{blueprint}")
+
+# class StartTile(MapTile):
+#     """starting location"""
+#     def intro_text(self):
+#         return"""
+#         You were invited by Lilian to a dinner at a mansion.
+#         Three other people were invited, Jay, Megan, and Abriella.
+#         While having dinner, Lilian was killed.
+#         The suspects are Jay, Megan, and Abriella.
+#         You inspect her body and you find out that she was poisoned.
+#         With farther inspection, find a silver key in her pocket.
+#         """
+#
+#
+# class BoringTile(MapTile):
+#
+#     def intro_text(self):
+#         return"""
+#         Nothing found here
+#         """
 
 
 
-print(blueprint)
+
+
+def tile_at(x, y):
+    if x < 0 or y < 0:
+        return None
+    try:
+        return blueprint[y][x]
+    except IndexError:
+        return None
