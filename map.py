@@ -19,6 +19,7 @@ blueprint1 = [
             ["  ", "  ", "Abriella's room", "Lilian's rooms", "  "]
             ]
 
+
 # def print_map():
 #     for row in blueprint:
 #         print(row)
@@ -30,24 +31,32 @@ class MapTile:
         self.x = x
         self.y = y
 
-    def name(self):
+    def __str__(self):
         return self.name
 
     def intro_text(self):
         raise NotImplementedError("Create a subclass instead")
 
 
-class Kitchen(MapTile):
-    def __init__(self, x, y):
-        self.i = 0
-        self.name = "Kitchen"
+class ViewMap:
+    """prints a map"""
+    def print_map(self):
+        """printing the map"""
+        self.bp_print = """
+        Outside | Kitchen     | Megan's room    | Jay's room    |
+                | dining room |              Hallway            | Lilian's Office
+                              | Abriella's room | Lilian's room |
+        """
+        print(self.bp_print)
 
-        super().__init__(x, y)
 
-blueprint = [
-    [Kitchen(0, 0)]
-]
-print(f"{blueprint}")
+blueprint = ViewMap()
+blueprint.print_map()
+
+# blueprint = [
+#     [Kitchen(0, 0)]
+# ]
+# print(f"{blueprint}")
 
 # class StartTile(MapTile):
 #     """starting location"""
@@ -68,9 +77,6 @@ print(f"{blueprint}")
 #         return"""
 #         Nothing found here
 #         """
-
-
-
 
 
 def tile_at(x, y):

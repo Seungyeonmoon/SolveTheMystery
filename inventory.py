@@ -3,7 +3,7 @@
 # Nov.25/2019
 # inventory for the game
 
-import map
+from map import ViewMap
 
 inventory = ['notebook', 'blueprint']
 
@@ -25,7 +25,7 @@ def choose_item():
             break
         elif item_choice in inventory:
             if item_choice == 'blueprint':
-                map.print_map()
+                ViewMap.print_map(self)
             else:
                 print("Type 'back' to go to main menu.")
 
@@ -56,3 +56,19 @@ class SilverKey(Obtainable):
 class LittleKey(Obtainable):
     def __init__(self):
         self.name = "little key"
+
+class Cattle(Obtainable):
+    def __init__(self):
+        self.name = "cattle"
+
+class Bucket(Obtainable):
+    def __init__(self):
+        self.name = "bucket"
+
+class Bottle(Obtainable):
+    def __init__(self):
+        self.name = "bottle"
+
+class Receipt(Obtainable):
+    def __init__(self):
+        self.name = "receipt"

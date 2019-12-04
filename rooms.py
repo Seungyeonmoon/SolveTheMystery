@@ -102,7 +102,3 @@ class LiOffice(Location):
     """outside with items to obtain"""
     def __init__(self):
         self.room = "Lilian's office"
-
-
-# class EmpRoom(Location):
-#     """blank part of masion"""
