@@ -25,7 +25,8 @@ def choose_item():
             break
         elif item_choice in inventory:
             if item_choice == 'blueprint':
-                ViewMap.print_map(self)
+                blueprint = ViewMap()
+                blueprint.print_map()
             else:
                 print("Type 'back' to go to main menu.")
 

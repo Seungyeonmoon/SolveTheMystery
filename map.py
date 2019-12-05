@@ -25,17 +25,17 @@ blueprint1 = [
 #         print(row)
 
 
-class MapTile:
-    """Map with x and y coordinates"""
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __str__(self):
-        return self.name
-
-    def intro_text(self):
-        raise NotImplementedError("Create a subclass instead")
+# class MapTile:
+#     """Map with x and y coordinates"""
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return self.name
+#
+#     def intro_text(self):
+#         raise NotImplementedError("Create a subclass instead")
 
 
 class ViewMap:
@@ -50,13 +50,10 @@ class ViewMap:
         print(self.bp_print)
 
 
-blueprint = ViewMap()
-blueprint.print_map()
+# blueprint = ViewMap()
+# blueprint.print_map()
 
-# blueprint = [
-#     [Kitchen(0, 0)]
-# ]
-# print(f"{blueprint}")
+
 
 # class StartTile(MapTile):
 #     """starting location"""

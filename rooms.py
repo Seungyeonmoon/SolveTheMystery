@@ -18,6 +18,11 @@ rooms = {
         "abriella's room": 'nothing to be found'
         }
 
+wall = {"L": "left wall",
+        "R": "right wall",
+        "F": "front wall",
+        "B": "back wall"}
+
 
 def print_rooms():
     """printing rooms that are in the right format"""
@@ -29,13 +34,16 @@ def choose_room():
     """user selects which room to go to"""
     print_rooms()
     print("Type 'back' to go to main menu.")
+    print("Which room would you like to explore?")
     while True:
-        print("Which room would you like to explore?")
         room_choice = player_choice("")
         if room_choice == 'back':
             break
         elif room_choice in rooms:
             print(f"You are infront of {room_choice}.")
+            if room_choice == 'kitchen':
+                room_wall()
+                wall_choice = player_choice("")
         else:
             print(f"{room_choice.title()} is not one of the choices.")
 
@@ -45,16 +53,30 @@ def player_choice(text):
     action_choice = input(text)
     return action_choice.lower()
 
+
 class Location:
     """returns room locations"""
-    def __init__(self):
-        self.room
+    def __init__(self, room):
+        self.room = room
 
+    def room_wall(self):
+        self.key
+        self.walls
+        for key, walls in wall.items():
+            print(f"- {self.key}: {self.walls}")
+
+Loc = Location("dine")
+print(Loc)
 
 class DineRoom(Location):
     """starting position of the player"""
     def __init__(self):
         self.room = "Dining Room"
+
+class Kitchen(Location):
+    """outside with items to obtain"""
+    def __init__(self):
+        self.room = "Kitchen"
 
 
 class Outside(Location):
@@ -85,11 +107,6 @@ class LiRoom(Location):
     """outside with items to obtain"""
     def __init__(self):
         self.room = "Lilian's room"
-
-class Kitchen(Location):
-    """outside with items to obtain"""
-    def __init__(self):
-        self.room = "Kitchen"
 
 
 class Hall(Location):
