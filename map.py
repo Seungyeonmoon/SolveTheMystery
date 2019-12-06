@@ -13,12 +13,6 @@
 #     """
 #     print(print_map)
 
-blueprint1 = [
-            ["Outside", "Kitchen", "Megan's room", "Jay's room", "  "],
-            ["  ", "Dining room", "Hallway", "Hallway", "Lilian's office"],
-            ["  ", "  ", "Abriella's room", "Lilian's rooms", "  "]
-            ]
-
 
 # def print_map():
 #     for row in blueprint:

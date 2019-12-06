@@ -21,7 +21,7 @@
     # TYPE: inspect _____ (cabinet, stove, pantry, or sink)
         # cabinet, have to open with a little key
             # in it, there is a golden key
-        # stove, a cattle
+        # stove, a kettle
         # sink, but can turn on water tab
         # pantry, a bucket on the floor
 # Back door:

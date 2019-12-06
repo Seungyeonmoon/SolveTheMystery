@@ -44,6 +44,7 @@ def choose_room():
             if room_choice == 'kitchen':
                 room_wall()
                 wall_choice = player_choice("")
+
         else:
             print(f"{room_choice.title()} is not one of the choices.")
 
@@ -56,17 +57,17 @@ def player_choice(text):
 
 class Location:
     """returns room locations"""
-    def __init__(self, room):
-        self.room = room
+    def __init__(self):
+        raise NotImplementedError("Do not create raw Weapon objects")
+
+    def __str__(self):
+        return self.name
 
     def room_wall(self):
         self.key
         self.walls
         for key, walls in wall.items():
             print(f"- {self.key}: {self.walls}")
-
-Loc = Location("dine")
-print(Loc)
 
 class DineRoom(Location):
     """starting position of the player"""
