@@ -39,9 +39,9 @@
 
 class Obtainable:
     def __init__(self):
-        print("self")
+        print("self") 
 
-    def __str(self):
+    def __str__(self):
         return self.name
 
 
@@ -51,12 +51,13 @@ class BronzeKey(Obtainable):
         self.find = "safe"
         self.use = "back door"
 
-    def print_item(self):
+    def print_i_name(self):
         print(self.name)
 
 
 object = Obtainable()
-object.print_item()
+object.print_i_name()
+
 
 # class GoldenKey(Obtainable):
 #     def __init__(self):
