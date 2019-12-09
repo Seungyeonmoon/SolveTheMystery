@@ -3,6 +3,8 @@
 # Nov.25/2019
 # rooms for the game
 
+from inventory import SilverKey
+
 rooms = {
         "dining room": 'where the murder happened',
         "kitchen": {'cabinet': 'golden key',
@@ -18,10 +20,10 @@ rooms = {
         "abriella's room": 'nothing to be found'
         }
 
-wall = {"L": "left wall",
-        "R": "right wall",
-        "F": "front wall",
-        "B": "back wall"}
+wall = {"l": "left wall",
+        "r": "right wall",
+        "f": "front wall",
+        "b": "back wall"}
 
 
 def print_rooms():
@@ -42,11 +44,25 @@ def choose_room():
         elif room_choice in rooms:
             print(f"You are infront of {room_choice}.")
             if room_choice == 'kitchen':
-                room_wall()
+                location = Location()
+                location.room_wall()
                 wall_choice = player_choice("")
-
-        else:
-            print(f"{room_choice.title()} is not one of the choices.")
+                if wall_choice == 'l':
+                    room = Kitchen()
+                    room.left_wall()
+                elif wall_choice == 'r':
+                    room = Kitchen()
+                    room.right_wall()
+                elif wall_choice == 'f':
+                    room = Kitchen()
+                    room.front_wall()
+                elif wall_choice == 'b':
+                    room = Kitchen()
+                    room.back_wall()
+                else:
+                    print("That is not one of the choices.")
+            else:
+                print(f"{room_choice.title()} is not one of the choices.")
 
 
 def player_choice(text):
@@ -58,26 +74,45 @@ def player_choice(text):
 class Location:
     """returns room locations"""
     def __init__(self):
-        raise NotImplementedError("Do not create raw Weapon objects")
+        print("self")
 
-    def __str__(self):
-        return self.name
-
-    def room_wall(self):
-        self.key
-        self.walls
+    def room_wall():
         for key, walls in wall.items():
-            print(f"- {self.key}: {self.walls}")
+            print(f"- {key}: {walls}")
+
 
 class DineRoom(Location):
     """starting position of the player"""
     def __init__(self):
         self.room = "Dining Room"
+        # key = SliverKey()
+        # self.find = key.print_i_name()
+
+    def print_r_name(self):
+        return self.room
+
 
 class Kitchen(Location):
     """outside with items to obtain"""
     def __init__(self):
         self.room = "Kitchen"
+
+    def left_wall(self):
+        self.place = "pantry"
+        print(f"You are infront of {self.place}.")
+
+    def right_wall(self):
+        self.place = "sink"
+        print(f"You are infront of {self.place}.")
+
+    def front_wall(self):
+        self.place = "cabinet"
+        print(f"You are infront of {self.place}.")
+
+    def back_wall(self):
+        self.place = "stove"
+        print(f"You are infront of {self.place}.")
+
 
 
 class Outside(Location):
