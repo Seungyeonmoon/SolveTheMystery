@@ -35,7 +35,7 @@ def player_choice(text):
     """turn user input and convert it to lowercase"""
     action_choice = input(text)
     return action_choice.lower()
-#
+
 
 class Obtainable:
     def __init__(self):
@@ -55,8 +55,8 @@ class BronzeKey(Obtainable):
         print(self.name)
 
 
-object = BronzeKey()
-object.print_i_name()
+# object = BronzeKey()
+# object.print_i_name()
 
 
 # class GoldenKey(Obtainable):
