@@ -46,16 +46,24 @@ def choose_room():
             if room_choice == 'back':
                 break
             elif room_choice == "lilian's room":
-                room_wall()
-                wall_choice = player_choice("")
-                if wall_choice == 'left' or 'back' or 'front':
-                    print(f"There is nothing on {wall_choice} wall.")
-                elif back_wall == "right":
-                    w = LiRoom()
-                    w.right_wall()
-            else:
-                print(f"{room_choice.title()} is not one of the choices.")
-
+                print("Use an item to open the door.")
+                inventory.print_items()
+                items_choice = player_choice("")
+                if items_choice == 'back':
+                    break
+                elif items_choice == "silver key":
+                    print("You open the door and enter the room.")
+                    room_wall()
+                    wall_choice = player_choice("")
+                    if wall_choice == 'left' or 'back' or 'front':
+                        print(f"There is nothing on {wall_choice} wall.")
+                    elif back_wall == "right":
+                        w = LiRoom()
+                        w.right_wall()
+                elif items_choice != "silver key":
+                    print("That is the wrong item!")
+        else:
+            print(f"{room_choice.title()} is not one of the choices.")
 
 
 def player_choice(text):
@@ -74,21 +82,12 @@ class LiRoom:
     def __init__(self):
         self.room = "Lilian's room"
 
-    def left_wall(self):
-        self.place = None
-        print(f"You are infront of {self.place}.")
-
     def right_wall(self):
         self.place = "bedside table"
         print(f"You are infront of {self.place}.")
 
-    def front_wall(self):
-        self.place = None
 
-    def back_wall(self):
-        self.place = None
-
-choose_room()
+# choose_room()
 # class DineRoom:
 #     """starting position of the player"""
 #     def __init__(self):

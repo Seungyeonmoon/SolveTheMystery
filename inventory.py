@@ -5,7 +5,7 @@
 
 from map import ViewMap
 
-inventory = ['notebook', 'blueprint']
+inventory = ['notebook', 'blueprint', 'silver key']
 
 
 def print_items():
@@ -19,7 +19,6 @@ def choose_item():
     print_items()
     print("Type 'back' to go to main menu.")
     while True:
-        print("Which item would you like to use?")
         item_choice = player_choice("")
         if item_choice == 'back':
             break
@@ -29,12 +28,18 @@ def choose_item():
                 blueprint.print_map()
             else:
                 print("Type 'back' to go to main menu.")
+        else:
+            print("You can view map by typing in 'blueprint'")
+            print("Type 'back' to go to main menu.")
 
 
 def player_choice(text):
     """turn user input and convert it to lowercase"""
-    action_choice = input(text)
-    return action_choice.lower()
+    try:
+        action_choice = input(text)
+        return action_choice.lower()
+    except NameError:
+        print("Invalid input. Please try again. ")
 
 
 class Obtainable:

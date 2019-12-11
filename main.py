@@ -24,10 +24,14 @@ def play():
             print(f"{action_choice} is not one of the choices.")
 
 
+
 def player_choice(text):
     """turn user input and convert it to lowercase"""
-    action_choice = input(text)
-    return action_choice.lower()
+    try:
+        action_choice = input(text)
+        return action_choice.lower()
+    except NameError:
+        print("Invalid input. Please try again. ")
 
 
 def print_actions(action):
