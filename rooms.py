@@ -46,30 +46,41 @@ def choose_room():
             if room_choice == 'back':
                 break
             elif room_choice == "lilian's room":
-                print("Use an item to open the door.")
-                inventory.print_items()
-                items_choice = player_choice("")
-                if items_choice == 'back':
-                    break
-                elif items_choice == "silver key":
-                    print("You open the door and enter the room.")
-                    room_wall()
-                    wall_choice = player_choice("")
-                    if wall_choice == 'left' or 'back' or 'front':
-                        print(f"There is nothing on {wall_choice} wall.")
-                    elif back_wall == "right":
-                        w = LiRoom()
-                        w.right_wall()
-                elif items_choice != "silver key":
-                    print("That is the wrong item!")
+                key_room()
         else:
             print(f"{room_choice.title()} is not one of the choices.")
 
 
+def key_room():
+    """for rooms that require keys to go in"""
+    print("Use an item to open the door.")
+    inventory.print_items()
+    while True:
+        items_choice = player_choice("")
+        if items_choice == 'back':
+            break
+        elif items_choice == "silver key":
+            print("You open the door and enter the room.")
+            room_wall()
+            wall_choice = player_choice("")
+            if wall_choice == 'left' or 'back' or 'front':
+                print(f"There is nothing on {wall_choice} wall.")
+            elif wall_choice == "right":
+                w = LiRoom()
+                w.right_wall()
+            else:
+                print("That is not one of the options.")
+        else:
+            print("That is the wrong item!")
+
+
 def player_choice(text):
     """turn user input and convert it to lowercase"""
-    action_choice = input(text)
-    return action_choice.lower()
+    try:
+        action_choice = input(text)
+        return action_choice.lower()
+    except NameError:
+        print("Invalid input. Please try again.")
 
 
 def room_wall():
@@ -86,6 +97,7 @@ class LiRoom:
         self.place = "bedside table"
         print(f"You are infront of {self.place}.")
 
+# choose_room()
 
 # choose_room()
 # class DineRoom:
@@ -100,6 +112,16 @@ class LiRoom:
 #     """outside with items to obtain"""
 #     def __init__(self):
 #         self.room = "Kitchen"
+#
+#     def intro_text(self):
+#         return"""
+#         You were invited by Lilian to a dinner at a mansion.
+#         Three other people were invited, Jay, Megan, and Abriella.
+#         While having dinner, Lilian was killed.
+#         The suspects are Jay, Megan, and Abriella.
+#         You inspect her body and you find out that she was poisoned.
+#         With farther inspection, find a silver key in her pocket.
+#         """
 #
 #     def left_wall(self):
 #         self.place = "pantry"
@@ -139,8 +161,6 @@ class LiRoom:
 #     """outside with items to obtain"""
 #     def __init__(self):
 #         self.room = "Jay's room"
-#
-#
 #
 #
 # class AbRoom:

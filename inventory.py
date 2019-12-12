@@ -18,6 +18,7 @@ def choose_item():
     """user selects which item to use"""
     print_items()
     print("Type 'back' to go to main menu.")
+    print("You can view map by typing in 'blueprint'")
     while True:
         item_choice = player_choice("")
         if item_choice == 'back':
@@ -26,10 +27,11 @@ def choose_item():
             if item_choice == 'blueprint':
                 blueprint = ViewMap()
                 blueprint.print_map()
+                print("Type 'back' to go to main menu.")
             else:
                 print("Type 'back' to go to main menu.")
+                print("You can view map by typing in 'blueprint'")
         else:
-            print("You can view map by typing in 'blueprint'")
             print("Type 'back' to go to main menu.")
 
 
