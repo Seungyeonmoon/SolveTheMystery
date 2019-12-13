@@ -4,21 +4,6 @@
 # Map for the game
 
 
-# def map():
-#     """Print a blueprint of the mansion"""
-#     print_map = """
-#     Outside | Kitchen     | Megan's room    | Jay's room    |
-#             | dining room |              Hallway            | Lilian's Office
-#                           | Abriella's room | Lilian's room |
-#     """
-#     print(print_map)
-
-
-# def print_map():
-#     for row in blueprint:
-#         print(row)
-
-
 # class MapTile:
 #     """Map with x and y coordinates"""
 #     def __init__(self, x, y):
@@ -68,12 +53,3 @@ class ViewMap:
 #         return"""
 #         Nothing found here
 #         """
-
-
-def tile_at(x, y):
-    if x < 0 or y < 0:
-        return None
-    try:
-        return blueprint[y][x]
-    except IndexError:
-        return None
