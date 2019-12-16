@@ -3,14 +3,18 @@
 # Nov.15/2019
 # Menu for the game
 
+import sys
 import inventory
 import rooms
+from map import Start
 
 
 def play():
     """looping through the game"""
     # directions & actions
     action = ['explore rooms', 'check inventory', 'quit']
+    s = Start('start')
+    s.intro_text()
     while True:
         print_actions(action)
         action_choice = player_choice("")

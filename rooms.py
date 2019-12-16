@@ -4,6 +4,7 @@
 # rooms for the game
 
 import inventory
+import sys
 
 # rooms = {
 #         "dining room": 'where the murder happened',
@@ -87,28 +88,31 @@ def key_room():
         elif items_choice == "silver key":
             print("You open the door and enter the room.")
             room_wall()
-            Li = LiRoom()
-            Li.li_room()
+            li_room()
         else:
             print("That is the wrong item!")
+
+
+def li_room():
+    """directions in lilian's room"""
+    while True:
+        wall_choice = player_choice("")
+        if wall_choice == 'back':
+            break
+        elif wall_choice in ['left', 'front', 'behind']:
+            print(f"There is nothing on {wall_choice} wall.")
+        elif wall_choice == "right":
+            w = LiRoom()
+            w.right_wall()
+        else:
+            print("That is not one of the options.")
+
 
 class LiRoom:
     """lilian's room with items to obtain"""
     def __init__(self):
         self.room = "Lilian's room"
 
-    def li_room(self):
-        """directions in lilian's room"""
-        while True:
-            wall_choice = player_choice("")
-            if wall_choice == 'back':
-                break
-            elif wall_choice in ['left', 'front', 'behind']:
-                print(f"There is nothing on {wall_choice} wall.")
-            elif wall_choice == "right":
-                right_wall(self)
-            else:
-                print("That is not one of the options.")
 
     def right_wall(self):
         self.place = "bedside table"
@@ -116,9 +120,11 @@ class LiRoom:
         print(f"You are infront of {self.place}. On it, there is a {self.item}.")
         print("You grab it and put it into the inventory.")
         inventory.collect(self.item)
+        print("You have finished collecting all the clues in this room.")
+        sys.exit()
 
 
-choose_room()
+# choose_room()
 
 # ------------ for future use ----------
 # class DineRoom:

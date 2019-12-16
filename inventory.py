@@ -55,26 +55,6 @@ class Obtainable:
         return self.name
 
 
-class BronzeKey(Obtainable):
-    def __init__(self):
-        self.name = "bronze key"
-        self.find = "safe"
-        self.use = "back door"
-
-    def print_i_name(self):
-        print(self.name)
-
-
-# object = BronzeKey()
-# object.print_i_name()
-
-
-# class GoldenKey(Obtainable):
-#     def __init__(self):
-#         self.name = "golden key"
-#         self.find = "cabinet"
-#         self.use = "lilian's room"
-#
 class SilverKey(Obtainable):
     def __init__(self):
         self.name = "silver key"
@@ -83,13 +63,30 @@ class SilverKey(Obtainable):
 
     def print_i_name(self):
         print(self.name)
-#
-# class LittleKey(Obtainable):
+
+
+class LittleKey(Obtainable):
+    def __init__(self):
+        self.name = "little key"
+        self.find = "bedside table"
+        self.use = "cabinet"
+
+
+# class BronzeKey(Obtainable):
 #     def __init__(self):
-#         self.name = "little key"
-#         self.find = "bedside table"
-#         self.use = "cabinet"
+#         self.name = "bronze key"
+#         self.find = "safe"
+#         self.use = "back door"
 #
+#     def print_i_name(self):
+#         print(self.name)
+
+# class GoldenKey(Obtainable):
+#     def __init__(self):
+#         self.name = "golden key"
+#         self.find = "cabinet"
+#         self.use = "kitchen"
+
 # class Kettle(Obtainable):
 #     def __init__(self):
 #         self.name = "kettle"

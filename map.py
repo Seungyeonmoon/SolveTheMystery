@@ -4,17 +4,27 @@
 # Map for the game
 
 
-# class MapTile:
-#     """Map with x and y coordinates"""
-#     def __init__(self, x, y):
-#         self.x = x
-#         self.y = y
-#
-#     def __str__(self):
-#         return self.name
-#
-#     def intro_text(self):
-#         raise NotImplementedError("Create a subclass instead")
+class MapTile:
+    """Map with x and y coordinates"""
+    def __init__(self, intro):
+        self.intro = intro
+
+
+class Start(MapTile):
+    """starting location"""
+    def intro_text(self):
+        self.intro = """
+You were invited by Lilian to a dinner at a mansion.
+Three other people were invited, Jay, Megan, and Abriella.
+While having dinner in the dining room, Lilian was killed.
+The suspects are Jay, Megan, and Abriella.
+You inspect her body and you find out that she was poisoned.
+With farther inspection, find a silver key in her pocket.
+Start exploring the masion to determine the murderer.
+"""
+        print(self.intro)
+
+
 
 
 class ViewMap:
@@ -32,19 +42,6 @@ class ViewMap:
 # blueprint = ViewMap()
 # blueprint.print_map()
 
-
-
-# class StartTile(MapTile):
-#     """starting location"""
-#     def intro_text(self):
-#         return"""
-#         You were invited by Lilian to a dinner at a mansion.
-#         Three other people were invited, Jay, Megan, and Abriella.
-#         While having dinner, Lilian was killed.
-#         The suspects are Jay, Megan, and Abriella.
-#         You inspect her body and you find out that she was poisoned.
-#         With farther inspection, find a silver key in her pocket.
-#         """
 #
 #
 # class BoringTile(MapTile):
