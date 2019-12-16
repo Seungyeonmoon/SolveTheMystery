@@ -25,8 +25,6 @@ Start exploring the masion to determine the murderer.
         print(self.intro)
 
 
-
-
 class ViewMap:
     """prints a map"""
     def print_map(self):

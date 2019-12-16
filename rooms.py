@@ -113,11 +113,10 @@ class LiRoom:
     def __init__(self):
         self.room = "Lilian's room"
 
-
     def right_wall(self):
         self.place = "bedside table"
         self.item = 'little key'
-        print(f"You are infront of {self.place}. On it, there is a {self.item}.")
+        print(f"You are infront of {self.place}. On it, there is {self.item}.")
         print("You grab it and put it into the inventory.")
         inventory.collect(self.item)
         print("You have finished collecting all the clues in this room.")

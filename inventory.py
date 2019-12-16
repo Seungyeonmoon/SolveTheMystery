@@ -7,6 +7,7 @@ from map import ViewMap
 
 inventory = ['notebook', 'blueprint', 'silver key']
 
+
 def collect(item):
     inventory.append(item)
 
