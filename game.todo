@@ -8,5 +8,5 @@ Game:
     ✔ finish menu @done(2019-11-14 08:49) @project(game)
     ✔ create map for the game @done(2019-11-22 08:41) @project(game)
     ✔ import map, inventory, rooms files into main file @done(2019-11-22 08:41) @project(game)
-    ☐ create classes for map, rooms, & inventory
-    ☐ 
+    ✔ create classes for map, rooms, & inventory @done(2019-12-16 09:26) @project(Game)
+    ✔ finish Lilian's room @done(2019-12-16 09:26) @project(Game)
