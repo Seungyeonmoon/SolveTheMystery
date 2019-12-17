@@ -6,21 +6,6 @@
 import inventory
 import sys
 
-# rooms = {
-#         "dining room": 'where the murder happened',
-#         "kitchen": {'cabinet': 'golden key',
-#                     'stove': 'cattle',
-#                     'pantry': 'bucket on the floor',
-#                     'sink': 'turn on water tap'
-#                     },
-#         "back door": {'well': 'poison bottle'},
-#         "lilian's room": {'bedside table': 'little key'},
-#         "lilian's office": {'fireplace': 'note', 'safe': 'bronze key'},
-#         "jay's room": {'coat hanger': 'recipt'},
-#         "megan's room": {'under the bed': 'notebook'},
-#         "abriella's room": 'nothing to be found'
-#         }
-
 rooms = ["dining room",
          "kitchen",
          "back door",
