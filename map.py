@@ -39,12 +39,3 @@ class ViewMap:
 
 # blueprint = ViewMap()
 # blueprint.print_map()
-
-#
-#
-# class BoringTile(MapTile):
-#
-#     def intro_text(self):
-#         return"""
-#         Nothing found here
-#         """

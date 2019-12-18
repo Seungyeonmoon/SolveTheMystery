@@ -5,7 +5,7 @@
 
 from map import ViewMap
 
-inventory = ['notebook', 'blueprint', 'silver key']
+inventory = ['blueprint', 'silver key']
 
 
 def collect(item):
@@ -49,7 +49,7 @@ def player_choice(text):
         print("Invalid input. Please try again. ")
 
 
-class Key:
+class Obtainable:
     def __init__(self, item):
         self.item = item
 
@@ -58,7 +58,7 @@ class Key:
         collect(self.item)
 
 
-class SilverKey(Key):
+class SilverKey(Obtainable):
     def __init__(self, item):
         super().__init__(item)
         # self.item = "silver key"
@@ -78,14 +78,15 @@ class SilverKey(Key):
 # k = SilverKey(input(""))
 # k.use()
 
-class LittleKey(Key):
-    def __init__(self):
+class LittleKey(Obtainable):
+    def __init__(self, item):
         super().__init__(item)
         # self.item = "little key"
         # self.find = "bedside table"
-        # self.use = "cabinet"
+        self.place = "cabinet"
 
     def take(self):
+        print(f"On the {self.place}, there is a {self.item}.")
         print(f"You take the {self.item}.")
         collect(self.item)
 
@@ -94,10 +95,11 @@ class LittleKey(Key):
             print("You open the cabinet door.")
         else:
             print("That is the wrong item!")
+# k = LittleKey(input(""))
+# k.use()
 
-
-class BronzeKey(Key):
-    def __init__(self):
+class BronzeKey(Obtainable):
+    def __init__(self, item):
         super().__init__(item)
         # self.name = "bronze key"
         # self.find = "safe"
@@ -114,9 +116,8 @@ class BronzeKey(Key):
             print("That is the wrong item!")
 
 
-
 class GoldenKey(Obtainable):
-    def __init__(self):
+    def __init__(self, item):
         super().__init__(item)
         # self.name = "golden key"
         # self.find = "cabinet"
@@ -133,34 +134,98 @@ class GoldenKey(Obtainable):
             print("That is the wrong item!")
 
 
-# class Clue:
-#     def __init__(self):
-#         print("self")
-#
-#     def __str__(self):
-#         return self.name
+class Kettle(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+        # self.name = "kettle"
+        # self.find = "stove"
+        # self.use = "fireplace"
+
+    def take(self):
+        print(f"You take the {self.item}.")
+        collect(self.item)
+
+    def use(self):
+        if self.item == "kettle":
+            print("You turn off the fire.")
+        else:
+            print("That is the wrong item!")
+
+class Bucket(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+        # self.name = "bucket"
+        # self.find = "pantry"
+        # self.use = "well"
+
+    def take(self):
+        print(f"You take the {self.item}.")
+        collect(self.item)
+
+    def use(self):
+        if self.item == "bucket":
+            print("You pull up the water.")
+        else:
+            print("That is the wrong item!")
+
+class Bottle(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+        # self.name = "bottle"
+        # self.find = "well"
+        # self.use = "clue"
+    def take(self):
+        print(f"You take the {self.item}.")
+        collect(self.item)
+
+    def clue(self):
+        if self.item == "bottle":
+            print("It contains poison.")
+        else:
+            print("That is the wrong item!")
 
 
-# class Kettle(Obtainable):
-#     def __init__(self):
-#         self.name = "kettle"
-#         self.find = "stove"
-#         self.use = "fireplace"
-#
-# class Bucket(Obtainable):
-#     def __init__(self):
-#         self.name = "bucket"
-#         self.find = "pantry"
-#         self.use = "well"
-#
-# class Bottle(Obtainable):
-#     def __init__(self):
-#         self.name = "bottle"
-#         self.find = "well"
-#         self.use = "clue"
-#
-# class Receipt(Obtainable):
-#     def __init__(self):
-#         self.name = "receipt"
-#         self.find = "given"
-#         self.use = "clue"
+class Receipt(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+        # self.name = "receipt"
+        # self.find = "given"
+        # self.use = "clue"
+
+    def take(self):
+        print(f"You read the {self.item}.")
+        collect(self.item)
+
+    def clue(self):
+        if self.item == "receipt":
+            print("The recipe reads that Jay bought 'diltiazem' medication 4 days ago.")
+            print("Diltiazem: medication for high blood pressure, when consumed"
+            "by an individual in large quantities without high blood"
+            "pressure, can cause heart failure.")
+        else:
+            print("That is the wrong item!")
+
+# k = Receipt('receipt')
+# k.clue()
+
+
+class Notebook(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+        # self.name = "receipt"
+        # self.find = "given"
+        # self.use = "clue"
+
+    def take(self):
+        print(f"You read the {self.item}.")
+        collect(self.item)
+
+    def clue(self):
+        if self.item == "notebook":
+            print("Megan wrote about family members.")
+            print("Lilian: old, but healty, had 3 siblings, parents of Jay, Megan, Abriella, rich")
+            print("Jay: in his 30s, has a high blood pressure")
+            print("Megan: in her 30s, no health conditions")
+            print("Abriella: Youngest of the cousins, in her 20s, has Asthma")
+        else:
+            print("That is the wrong item!")

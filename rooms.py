@@ -8,7 +8,7 @@ import sys
 
 rooms = ["dining room",
          "kitchen",
-         "back door",
+         "outside",
          "lilian's room",
          "lilian's office",
          "jay's room",
@@ -37,6 +37,20 @@ def choose_room():
                 break
             elif room_choice == "lilian's room":
                 key_room()
+            # elif room_choice == "kitchen":
+            #
+            # elif room_choice == "dining room":
+            #     print("")
+            # elif room_choice == "outside":
+            #
+            # elif room_choice == "lilian's office":
+            #
+            # elif room_choice == "jay's room":
+            #
+            # elif room_choice == "megan's room":
+            #
+            # elif room_choice == "abriella's room":
+            #     print("There is nothing to be found.")
         else:
             print(f"{room_choice.title()} is not one of the choices.")
 
@@ -102,7 +116,6 @@ class LiRoom:
         self.place = "bedside table"
         self.item = 'little key'
         print(f"You are infront of {self.place}. On it, there is {self.item}.")
-        print("You grab it and put it into the inventory.")
         inventory.collect(self.item)
         print("You have finished collecting all the clues in this room.")
         sys.exit()
@@ -123,16 +136,6 @@ class LiRoom:
 #     """outside with items to obtain"""
 #     def __init__(self):
 #         self.room = "Kitchen"
-#
-#     def intro_text(self):
-#         return"""
-#         You were invited by Lilian to a dinner at a mansion.
-#         Three other people were invited, Jay, Megan, and Abriella.
-#         While having dinner, Lilian was killed.
-#         The suspects are Jay, Megan, and Abriella.
-#         You inspect her body and you find out that she was poisoned.
-#         With farther inspection, find a silver key in her pocket.
-#         """
 #
 #     def left_wall(self):
 #         self.place = "pantry"
@@ -155,11 +158,12 @@ class LiRoom:
 #         print(f"There is a {self.item}, and you grab it.")
 #
 #
-#
 # class Outside:
 #     """outside with items to obtain"""
 #     def __init__(self):
 #         self.room = "Outside"
+#
+#     def
 #
 #
 # class MegRoom:
@@ -178,12 +182,6 @@ class LiRoom:
 #     """outside with items to obtain"""
 #     def __init__(self):
 #         self.room = "Abriella's room"
-#
-#
-# class Hall:
-#     """nothing to obtain, empty room"""
-#     def __init__(self):
-#         self.room = "Hallway"
 #
 #
 # class LiOffice:
