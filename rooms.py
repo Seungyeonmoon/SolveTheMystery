@@ -4,6 +4,7 @@
 # rooms for the game
 
 import inventory
+from inventory import *
 import sys
 
 rooms = ["dining room",
@@ -67,13 +68,35 @@ def player_choice(text):
 def print_rooms():
     """printing rooms that are in the right format"""
     for room_choice in rooms:
-        print(f"- {room_choice.upper()}")
+        print(f" - {room_choice.upper()}")
 
 
-def room_wall():
-    """prints out the list of walls"""
-    for key, walls in wall.items():
-        print(f"- {key}: {walls}")
+class Rooms:
+    def __init__(self, room):
+        self.room = room
+
+    def room_wall(self):
+        """prints out the list of walls"""
+        print(f"You are in {self.room}")
+        print("Which wall would you like to look at?")
+        for key, walls in wall.items():
+            print(f" - {key}: {walls}")
+
+
+class LiOffice(Rooms):
+    """Lilian's office with items to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+        # self.room = "Lilian's office"
+
+    def front_wall():
+        self.place = "fireplace"
+        print(f"You are infront of the {self.place}")
+        print("Use an item to turn off the fire")
+
+# rr = Rooms("Lilian's room")
+# rr.room_wall()
+
 
 
 def key_room():
@@ -184,7 +207,3 @@ class LiRoom:
 #         self.room = "Abriella's room"
 #
 #
-# class LiOffice:
-#     """outside with items to obtain"""
-#     def __init__(self):
-#         self.room = "Lilian's office"

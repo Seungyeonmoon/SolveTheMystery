@@ -78,6 +78,7 @@ class SilverKey(Obtainable):
 # k = SilverKey(input(""))
 # k.use()
 
+
 class LittleKey(Obtainable):
     def __init__(self, item):
         super().__init__(item)
@@ -97,6 +98,7 @@ class LittleKey(Obtainable):
             print("That is the wrong item!")
 # k = LittleKey(input(""))
 # k.use()
+
 
 class BronzeKey(Obtainable):
     def __init__(self, item):
@@ -229,3 +231,11 @@ class Notebook(Obtainable):
             print("Abriella: Youngest of the cousins, in her 20s, has Asthma")
         else:
             print("That is the wrong item!")
+
+class FilledKettle(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+
+    def take(self):
+         collect('filled kettle')
+         inventory.remove('kettle')
