@@ -33,7 +33,7 @@ def choose_room():
         if room_choice == 'back':
             break
         elif room_choice in rooms:
-            print(f"You are infront of {room_choice}.")
+            print(f"You are at {room_choice}.")
             if room_choice == 'back':
                 break
             elif room_choice == "lilian's room":
@@ -41,9 +41,14 @@ def choose_room():
             # elif room_choice == "kitchen":
             #
             # elif room_choice == "dining room":
-            #     print("")
+            #     dr = Rooms(room_choice)
+            #     rw = DineRoom(room_choice)
+            #     rw.nothing()
             # elif room_choice == "outside":
-            #
+            #     os = Rooms(room_choice)
+            #     os.unlock()
+            #     jt = Outside(room_choice)
+            #     jt.just_there()
             # elif room_choice == "lilian's office":
             #
             # elif room_choice == "jay's room":
@@ -69,34 +74,6 @@ def print_rooms():
     """printing rooms that are in the right format"""
     for room_choice in rooms:
         print(f" - {room_choice.upper()}")
-
-
-class Rooms:
-    def __init__(self, room):
-        self.room = room
-
-    def room_wall(self):
-        """prints out the list of walls"""
-        print(f"You are in {self.room}")
-        print("Which wall would you like to look at?")
-        for key, walls in wall.items():
-            print(f" - {key}: {walls}")
-
-
-class LiOffice(Rooms):
-    """Lilian's office with items to obtain"""
-    def __init__(self, room):
-        super().__init__(room)
-        # self.room = "Lilian's office"
-
-    def front_wall():
-        self.place = "fireplace"
-        print(f"You are infront of the {self.place}")
-        print("Use an item to turn off the fire")
-
-# rr = Rooms("Lilian's room")
-# rr.room_wall()
-
 
 
 def key_room():
@@ -144,7 +121,119 @@ class LiRoom:
         sys.exit()
 
 
-# choose_room()
+class Rooms:
+    def __init__(self, room):
+        self.room = room
+
+    def unlock(self):
+        print("You need to unlock the door to go in.")
+
+    def room_wall(self):
+        """prints out the list of walls"""
+        print(f"You are in {self.room}.")
+        print("Which wall would you like to look at?")
+        for key, walls in wall.items():
+            print(f" - {key}: {walls}")
+
+
+class LiOffice(Rooms):
+    """Lilian's office with items to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def front_wall(self):
+        self.place = "fireplace"
+        print(f"You are infront of the {self.place}")
+        print("Use an item to turn off the fire")
+
+
+class DineRoom(Rooms):
+    """dining room with items to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def nothing(self):
+        print("There is nothing to be found in the dining room.")
+
+
+class Kitchen(Rooms):
+    """kitchen with items to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def front_wall(self):
+        self.place = "sink"
+        print(f"You are infront of the {self.place}")
+        print("turn on the tab")
+
+    def behind_wall(self):
+        self.place = "pantry"
+        print(f"You are infront of the {self.place}")
+        print("You open the door and find a bucket on the floor.")
+
+    def left_wall(self):
+        self.place = "cabinet"
+        print(f"You are infront of the {self.place}")
+        print("Use an item to open.")
+
+    def right_wall(self):
+        self.place = "stove"
+        print(f"You are infront of the {self.place}")
+        print(f"There is a kettle.")
+
+
+class Outside(Rooms):
+    """outside with clues to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def just_there(self):
+        self.place = "well"
+        print("You look down into the well and find something shiny.")
+        print("Use an item to pull the water up.")
+
+
+class JayRoom(Rooms):
+    """jay's room with clues to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def right_wall(self):
+        self.place = "coat hanger"
+        print("In the coat, you find a receipt")
+
+
+class MegRoom(Rooms):
+    """megan's room with clues to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def front_wall(self):
+        self.place = "bed"
+        print("You are infront of the bed."
+        "You look under it and find a notebook")
+
+
+class AbRooom(Rooms):
+    """abriella's room with clues to obtain"""
+    def __init__(self, room):
+        super().__init__(room)
+
+    def nothing(self):
+        print("There is nothing to be found in Abriella's room.")
+
+
+# class LiRoom(Rooms):
+#     """lilian's with items to obtain"""
+#     def __init__(self, room):
+#         super().__init__(room)
+#
+#     def right_wall(self):
+#         self.place = "bedside table"
+#         print(f"On the {self.place}, there is little key.")
+
+
+choose_room()
 
 # ------------ for future use ----------
 # class DineRoom:
