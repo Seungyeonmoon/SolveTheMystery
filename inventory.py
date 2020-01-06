@@ -204,8 +204,8 @@ class Receipt(Obtainable):
     def clue(self):
         if self.item == "receipt":
             print("The recipe reads that Jay bought 'diltiazem' medication 4 days ago.")
-            print("Diltiazem: medication for high blood pressure, when consumed"
-            "by an individual in large quantities without high blood"
+            print("Diltiazem: medication for high blood pressure, when"
+            "consumed by an individual in large quantities without high blood"
             "pressure, can cause heart failure.")
         else:
             print("That is the wrong item!")
@@ -241,5 +241,5 @@ class FilledKettle(Obtainable):
         super().__init__(item)
 
     def take(self):
-         collect('filled kettle')
-         inventory.remove('kettle')
+        collect('filled kettle')
+        inventory.remove('kettle')

@@ -36,8 +36,17 @@ def choose_room():
             print(f"You are at {room_choice}.")
             if room_choice == 'back':
                 break
-            elif room_choice == "lilian's room":
-                key_room()
+            # elif room_choice == "lilian's room":
+            #     key_room()
+            elif room_choice == "dining room":
+                dr = DineRoom(room_choice)
+                dr.nothing()
+            # elif room_choice == "lilian's office":
+            #     Lo = LiOffice(room_choice)
+            #     Lo.front_wall()
+            # elif room_choice == "outside":
+            #     os = Outside(room_choice)
+            #     os.just_there()
             # elif room_choice == "kitchen":
             #
             # elif room_choice == "dining room":
@@ -125,8 +134,15 @@ class Rooms:
     def __init__(self, room):
         self.room = room
 
+    def print_items(self):
+        """printing inventory in the right format"""
+        for items in inventory:
+            print(f"- {items.upper()}")
+
     def unlock(self):
         print("You need to unlock the door to go in.")
+        print("Use an item?")
+        print_items(self)
 
     def room_wall(self):
         """prints out the list of walls"""
@@ -143,8 +159,8 @@ class LiOffice(Rooms):
 
     def front_wall(self):
         self.place = "fireplace"
-        print(f"You are infront of the {self.place}")
-        print("Use an item to turn off the fire")
+        print(f"You are infront of the {self.place}.")
+        print("Use an item to turn off the fire.")
 
 
 class DineRoom(Rooms):
@@ -154,6 +170,7 @@ class DineRoom(Rooms):
 
     def nothing(self):
         print("There is nothing to be found in the dining room.")
+        sys.exit()
 
 
 class Kitchen(Rooms):
@@ -211,7 +228,7 @@ class MegRoom(Rooms):
     def front_wall(self):
         self.place = "bed"
         print("You are infront of the bed."
-        "You look under it and find a notebook"
+        "You look under it and find a notebook")
 
 
 class AbRooom(Rooms):
@@ -233,7 +250,7 @@ class AbRooom(Rooms):
 #         print(f"On the {self.place}, there is little key.")
 
 
-choose_room()
+# choose_room()
 
 # ------------ for future use ----------
 # class DineRoom:
