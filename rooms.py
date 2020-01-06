@@ -211,7 +211,7 @@ class MegRoom(Rooms):
     def front_wall(self):
         self.place = "bed"
         print("You are infront of the bed."
-        "You look under it and find a notebook")
+        "You look under it and find a notebook"
 
 
 class AbRooom(Rooms):

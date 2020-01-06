@@ -153,6 +153,7 @@ class Kettle(Obtainable):
         else:
             print("That is the wrong item!")
 
+
 class Bucket(Obtainable):
     def __init__(self, item):
         super().__init__(item)
@@ -170,12 +171,14 @@ class Bucket(Obtainable):
         else:
             print("That is the wrong item!")
 
+
 class Bottle(Obtainable):
     def __init__(self, item):
         super().__init__(item)
         # self.name = "bottle"
         # self.find = "well"
         # self.use = "clue"
+
     def take(self):
         print(f"You take the {self.item}.")
         collect(self.item)
@@ -231,6 +234,7 @@ class Notebook(Obtainable):
             print("Abriella: Youngest of the cousins, in her 20s, has Asthma")
         else:
             print("That is the wrong item!")
+
 
 class FilledKettle(Obtainable):
     def __init__(self, item):
