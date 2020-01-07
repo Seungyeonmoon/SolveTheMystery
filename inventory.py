@@ -123,17 +123,19 @@ class GoldenKey(Obtainable):
         super().__init__(item)
         # self.name = "golden key"
         # self.find = "cabinet"
-        # self.use = "lilian's room"
+        # self.use = "lilian's office"
 
     def take(self):
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
-        if self.item == "golden key":
-            print("You open the cabinet door.")
-        else:
-            print("That is the wrong item!")
+        while True:
+
+            if self.item == "golden key":
+                print("You open the door.")
+            else:
+                print("That is the wrong item!")
 
 
 class Kettle(Obtainable):
