@@ -29,6 +29,7 @@ def choose_room():
     print("Type 'back' to go to main menu.")
     print("Which room would you like to explore?")
     while True:
+        print("Which room would you like to explore?")
         room_choice = player_choice("")
         if room_choice == 'back':
             break
@@ -37,11 +38,14 @@ def choose_room():
             if room_choice == 'back':
                 break
             elif room_choice == "lilian's room":
-                Lroom = Room(room_choice)
+                rm = Rooms(room_choice)
+                rm.unlock()
+                sk = SilverKey('silver key')
+                sk.use()
+                Lroom = Rooms(room_choice)
                 Lroom.room_wall()
-                # wall_chioce =
                 Lr = LiRoom(room_choice)
-                Lr.right_wall()
+                Lr.choose_wall()
             elif room_choice == "dining room":
                 dr = DineRoom(room_choice)
                 dr.nothing()
@@ -134,6 +138,7 @@ class LiOffice(Rooms):
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "front":
                 self.front_wall()
+                break
             else:
                 print("That is not one of the options.")
 
@@ -224,6 +229,15 @@ class LiRoom(Rooms):
         self.place = "bedside table"
         print(f"On the {self.place}, there is little key.")
 
+    def choose_wall(self):
+        while True:
+            wall_choice = player_choice("")
+            if wall_choice in ['left', 'front', 'behind']:
+                print(f"There is nothing on {wall_choice} wall.")
+            elif wall_choice == "right":
+                self.right_wall()
+            else:
+                print("That is not one of the options.")
 
 choose_room()
 

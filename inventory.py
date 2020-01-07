@@ -70,10 +70,18 @@ class SilverKey(Obtainable):
         collect(self.item)
 
     def use(self):
-        if self.item == "silver key":
-            print("You open the door and enter the room.")
-        else:
-            print("That is the wrong item!")
+        while True:
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "silver key":
+                    print("You open the door.")
+                    break
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 # k = SilverKey(input(""))
 # k.use()
@@ -131,11 +139,16 @@ class GoldenKey(Obtainable):
 
     def use(self):
         while True:
-
-            if self.item == "golden key":
-                print("You open the door.")
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "golden key":
+                    print("You open the door.")
+                else:
+                    print("That is the wrong item!")
             else:
-                print("That is the wrong item!")
+                print("You have not found the item yet.")
 
 
 class Kettle(Obtainable):
