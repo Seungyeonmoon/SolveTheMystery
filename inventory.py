@@ -10,7 +10,7 @@ inventory = ['blueprint', 'silver key']
 
 def collect(item):
     inventory.append(item)
-    print(f'you now have: {inventory}')
+    print(f'You now have: {inventory}')
 
 
 def print_items():
@@ -100,12 +100,18 @@ class LittleKey(Obtainable):
         collect(self.item)
 
     def use(self):
-        if self.item == "little key":
-            print("You open the cabinet door.")
-        else:
-            print("That is the wrong item!")
-# k = LittleKey(input(""))
-# k.use()
+        while True:
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "little key":
+                    print("You open the cabinet door.")
+                    break
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 
 class BronzeKey(Obtainable):
@@ -120,10 +126,19 @@ class BronzeKey(Obtainable):
         collect(self.item)
 
     def use(self):
-        if self.item == "bronze key":
-            print("You open the door and step outside.")
-        else:
-            print("That is the wrong item!")
+        while True:
+            print("Type 'back to go back.")
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "bronze key":
+                    print("You open the door and step outside.")
+                    break
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 
 class GoldenKey(Obtainable):
@@ -163,11 +178,17 @@ class Kettle(Obtainable):
         collect(self.item)
 
     def use(self):
-        if self.item == "kettle":
-            print("You turn off the fire.")
-        else:
-            print("That is the wrong item!")
-
+        while True:
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "kettle":
+                    print("There is no water.")
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 class FilledKettle(Obtainable):
     def __init__(self, item):
@@ -175,14 +196,21 @@ class FilledKettle(Obtainable):
 
     def take(self):
         print("You fill the kettle with water.")
-        collect('filled kettle')
         inventory.remove('kettle')
+        collect('filled kettle')
 
     def use(self):
-        if self.item == "filled kettle":
-            print("You turn off the fire.")
-        else:
-            print("That is the wrong item!")
+        while True:
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "filled kettle":
+                    print("You turn off the fire.")
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 
 class Bucket(Obtainable):
@@ -197,11 +225,17 @@ class Bucket(Obtainable):
         collect(self.item)
 
     def use(self):
-        if self.item == "bucket":
-            print("You pull up the water.")
-        else:
-            print("That is the wrong item!")
-
+        while True:
+            item_choice = player_choice("")
+            if item_choice == 'back':
+                break
+            elif item_choice in inventory:
+                if item_choice == "kettle":
+                    print("You pull up the water.")
+                else:
+                    print("That is the wrong item!")
+            else:
+                print("You have not found the item yet.")
 
 class Bottle(Obtainable):
     def __init__(self, item):

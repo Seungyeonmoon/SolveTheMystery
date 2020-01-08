@@ -55,9 +55,6 @@ def choose_room():
                 rm.room_wall()
                 Lo = LiOffice(room_choice)
                 Lo.choose_wall()
-            elif room_choice == "outside":
-                os = Outside(room_choice)
-                os.just_there()
             elif room_choice == "kitchen":
                 rm = Rooms(room_choice)
                 rm.room_wall()
@@ -66,6 +63,8 @@ def choose_room():
             elif room_choice == "outside":
                 os = Rooms(room_choice)
                 os.unlock()
+                bk = BronzeKey('bronze key')
+                bk.use()
                 jt = Outside(room_choice)
                 jt.just_there()
             elif room_choice == "jay's room":
@@ -75,7 +74,7 @@ def choose_room():
                 jr.choose_wall()
             elif room_choice == "megan's room":
                 mg = MegRoom(room_choice)
-                mg.front_wall()
+                mg.choose_wall()
             elif room_choice == "abriella's room":
                 ab = AbRooom(room_choice)
                 ab.nothing()
@@ -164,8 +163,8 @@ class Kitchen(Rooms):
     def front_wall(self):
         "front wall with items to collect"
         self.place = "sink"
-        print(f"You are infront of the {self.place}")
-        print("turn on the tab")
+        print(f"You are infront of the {self.place}.")
+        print("You turn on the tab.")
         if 'kettle' in inventory:
             fk = FilledKettle('filled kettle')
             fk.take()
@@ -307,50 +306,3 @@ class LiRoom(Rooms):
                 print("That is not one of the options.")
 
 choose_room()
-
-# ------------ for future use ----------
-#
-# def key_room():
-#     """for rooms that require keys to go in"""
-#     print("Use an item to open the door.")
-#     inventory.print_items()
-#     while True:
-#         items_choice = player_choice("")
-#         if items_choice == 'back':
-#             break
-#         elif items_choice == "silver key":
-#             print("You open the door and enter the room.")
-#             room_wall()
-#             li_room()
-#         else:
-#             print("That is the wrong item!")
-#
-#
-# def li_room():
-#     """directions in lilian's room"""
-#     while True:
-#         wall_choice = player_choice("")
-#         if wall_choice == 'back':
-#             break
-#         elif wall_choice in ['left', 'front', 'behind']:
-#             print(f"There is nothing on {wall_choice} wall.")
-#         elif wall_choice == "right":
-#             w = LiRoom()
-#             w.right_wall()
-#         else:
-#             print("That is not one of the options.")
-#
-#
-# class LiRoom:
-#     """lilian's room with items to obtain"""
-#     def __init__(self):
-#         self.room = "Lilian's room"
-#
-#     def right_wall(self):
-#         self.place = "bedside table"
-#         self.item = 'little key'
-#         print(f"You are infront of {self.place}. On it, there is {self.item}.")
-#         inventory.collect(self.item)
-#         print("You have finished collecting all the clues in this room.")
-#         sys.exit()
-#
