@@ -27,14 +27,13 @@ def choose_room():
     """user selects which room to go to"""
     print_rooms()
     print("Type 'back' to go to main menu.")
-    print("Which room would you like to explore?")
     while True:
         print("Which room would you like to explore?")
         room_choice = player_choice("")
         if room_choice == 'back':
             break
         elif room_choice in rooms:
-            print(f"You are at {room_choice}.")
+            # print(f"You are at {room_choice}.")
             if room_choice == 'back':
                 break
             elif room_choice == "lilian's room":
@@ -42,8 +41,7 @@ def choose_room():
                 rm.unlock()
                 sk = SilverKey('silver key')
                 sk.use()
-                Lroom = Rooms(room_choice)
-                Lroom.room_wall()
+                rm.room_wall()
                 Lr = LiRoom(room_choice)
                 Lr.choose_wall()
             elif room_choice == "dining room":
@@ -61,19 +59,20 @@ def choose_room():
                 os = Outside(room_choice)
                 os.just_there()
             elif room_choice == "kitchen":
-                kt = Kitchen(room_choice)
-                kt.right_wall()
-                kt.left_wall()
-                kt.front_wall()
-                kt.behind_wall()
+                rm = Rooms(room_choice)
+                rm.room_wall()
+                kn = Kitchen(room_choice)
+                kn.choose_wall()
             elif room_choice == "outside":
                 os = Rooms(room_choice)
                 os.unlock()
                 jt = Outside(room_choice)
                 jt.just_there()
             elif room_choice == "jay's room":
+                rm = Rooms(room_choice)
+                rm.room_wall()
                 jr = JayRoom(room_choice)
-                jr.right_wall()
+                jr.choose_wall()
             elif room_choice == "megan's room":
                 mg = MegRoom(room_choice)
                 mg.front_wall()
@@ -162,21 +161,45 @@ class Kitchen(Rooms):
         self.place = "sink"
         print(f"You are infront of the {self.place}")
         print("turn on the tab")
+        if 'kettle' in inventory:
+            fk = FilledKettle('filled kettle')
+            fk.take()
+        else:
+            print("You have not found the kettle yet.")
 
     def behind_wall(self):
         self.place = "pantry"
         print(f"You are infront of the {self.place}")
         print("You open the door and find a bucket on the floor.")
+        bt = Bucket('bucket')
+        bt.take()
 
     def left_wall(self):
         self.place = "cabinet"
         print(f"You are infront of the {self.place}")
         print("Use an item to open.")
+        super().print_items()
 
     def right_wall(self):
         self.place = "stove"
         print(f"You are infront of the {self.place}")
         print(f"There is a kettle.")
+        kt = Kettle('kettle')
+        kt.take()
+
+    def choose_wall(self):
+        while True:
+            wall_choice = player_choice("")
+            if wall_choice == 'left':
+                self.left_wall()
+            elif wall_choice == "right":
+                self.right_wall()
+            elif wall_choice == "front":
+                self.front_wall()
+            elif wall_choice == "behind":
+                self.behind_wall()
+            else:
+                print("That is not one of the options.")
 
 
 class Outside(Rooms):
@@ -198,6 +221,19 @@ class JayRoom(Rooms):
     def right_wall(self):
         self.place = "coat hanger"
         print("In the coat, you find a receipt.")
+        rt = Receipt('receipt')
+        rt.clue()
+
+    def choose_wall(self):
+        while True:
+            wall_choice = player_choice("")
+            if wall_choice in ['left', 'front', 'behind']:
+                print(f"There is nothing on {wall_choice} wall.")
+            elif wall_choice == "right":
+                self.right_wall()
+                break
+            else:
+                print("That is not one of the options.")
 
 
 class MegRoom(Rooms):
@@ -209,6 +245,19 @@ class MegRoom(Rooms):
         self.place = "bed"
         print("You are infront of the bed."
         "You look under it and find a notebook")
+        nb = Notebook('notebook')
+        nb.clue()
+
+    def choose_wall(self):
+        while True:
+            wall_choice = player_choice("")
+            if wall_choice in ['left', 'right', 'behind']:
+                print(f"There is nothing on {wall_choice} wall.")
+            elif wall_choice == "front":
+                self.right_wall()
+                break
+            else:
+                print("That is not one of the options.")
 
 
 class AbRooom(Rooms):
@@ -228,6 +277,8 @@ class LiRoom(Rooms):
     def right_wall(self):
         self.place = "bedside table"
         print(f"On the {self.place}, there is little key.")
+        Lk = LittleKey('little key')
+        Lk.take()
 
     def choose_wall(self):
         while True:
@@ -236,6 +287,7 @@ class LiRoom(Rooms):
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "right":
                 self.right_wall()
+                break
             else:
                 print("That is not one of the options.")
 

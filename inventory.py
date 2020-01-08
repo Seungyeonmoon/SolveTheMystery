@@ -10,7 +10,7 @@ inventory = ['blueprint', 'silver key']
 
 def collect(item):
     inventory.append(item)
-    print(inventory)
+    print(f'you now have: {inventory}')
 
 
 def print_items():
@@ -92,10 +92,10 @@ class LittleKey(Obtainable):
         super().__init__(item)
         # self.item = "little key"
         # self.find = "bedside table"
-        self.place = "cabinet"
+        # self.place = "cabinet"
 
     def take(self):
-        print(f"On the {self.place}, there is a {self.item}.")
+        # print(f"On the {self.place}, there is a {self.item}.")
         print(f"You take the {self.item}.")
         collect(self.item)
 
@@ -169,6 +169,22 @@ class Kettle(Obtainable):
             print("That is the wrong item!")
 
 
+class FilledKettle(Obtainable):
+    def __init__(self, item):
+        super().__init__(item)
+
+    def take(self):
+        print("You fill the kettle with water.")
+        collect('filled kettle')
+        inventory.remove('kettle')
+
+    def use(self):
+        if self.item == "filled kettle":
+            print("You turn off the fire.")
+        else:
+            print("That is the wrong item!")
+
+
 class Bucket(Obtainable):
     def __init__(self, item):
         super().__init__(item)
@@ -218,7 +234,7 @@ class Receipt(Obtainable):
 
     def clue(self):
         if self.item == "receipt":
-            print("The recipe reads that Jay bought 'diltiazem' medication 4 days ago.")
+            print("The receipt reads that Jay bought 'diltiazem' medication 4 days ago.")
             print("Diltiazem: medication for high blood pressure, when"
             "consumed by an individual in large quantities without high blood"
             "pressure, can cause heart failure.")
@@ -249,12 +265,3 @@ class Notebook(Obtainable):
             print("Abriella: Youngest of the cousins, in her 20s, has Asthma")
         else:
             print("That is the wrong item!")
-
-
-class FilledKettle(Obtainable):
-    def __init__(self, item):
-        super().__init__(item)
-
-    def take(self):
-        collect('filled kettle')
-        inventory.remove('kettle')
