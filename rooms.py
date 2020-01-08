@@ -99,6 +99,7 @@ def print_rooms():
 
 
 class Rooms:
+    "parent class for rooms"
     def __init__(self, room):
         self.room = room
 
@@ -107,7 +108,7 @@ class Rooms:
         print("Use an item?")
         print_items()
 
-    def print_items():
+    def print_items(self):
         """printing inventory in the right format"""
         for items in inventory:
             print(f"- {items.upper()}")
@@ -126,11 +127,13 @@ class LiOffice(Rooms):
         super().__init__(room)
 
     def front_wall(self):
+        "front wall"
         self.place = "fireplace"
         print(f"You are infront of the {self.place}.")
         print("Use an item to turn off the fire.")
 
     def choose_wall(self):
+        "user selecting the wall"
         while True:
             wall_choice = player_choice("")
             if wall_choice in ['left', 'right', 'behind']:
@@ -148,6 +151,7 @@ class DineRoom(Rooms):
         super().__init__(room)
 
     def nothing(self):
+        "there is nothing in this room"
         print("There is nothing to be found in the dining room.")
         sys.exit()
 
@@ -158,6 +162,7 @@ class Kitchen(Rooms):
         super().__init__(room)
 
     def front_wall(self):
+        "front wall with items to collect"
         self.place = "sink"
         print(f"You are infront of the {self.place}")
         print("turn on the tab")
@@ -168,6 +173,7 @@ class Kitchen(Rooms):
             print("You have not found the kettle yet.")
 
     def behind_wall(self):
+        "behind wall with items to collect"
         self.place = "pantry"
         print(f"You are infront of the {self.place}")
         print("You open the door and find a bucket on the floor.")
@@ -175,12 +181,14 @@ class Kitchen(Rooms):
         bt.take()
 
     def left_wall(self):
+        "left wall with items to collect"
         self.place = "cabinet"
         print(f"You are infront of the {self.place}")
         print("Use an item to open.")
         super().print_items()
 
     def right_wall(self):
+        "right wall with items to collect"
         self.place = "stove"
         print(f"You are infront of the {self.place}")
         print(f"There is a kettle.")
@@ -208,6 +216,7 @@ class Outside(Rooms):
         super().__init__(room)
 
     def just_there(self):
+        "visible directly when stepped outside"
         self.place = "well"
         print("You look down into the well and find something shiny.")
         print("Use an item to pull the water up.")
@@ -219,12 +228,14 @@ class JayRoom(Rooms):
         super().__init__(room)
 
     def right_wall(self):
+        "right wall with clues"
         self.place = "coat hanger"
         print("In the coat, you find a receipt.")
         rt = Receipt('receipt')
         rt.clue()
 
     def choose_wall(self):
+        "user selcting wall"
         while True:
             wall_choice = player_choice("")
             if wall_choice in ['left', 'front', 'behind']:
@@ -242,6 +253,7 @@ class MegRoom(Rooms):
         super().__init__(room)
 
     def front_wall(self):
+        "front wall with items to collect"
         self.place = "bed"
         print("You are infront of the bed."
         "You look under it and find a notebook")
@@ -249,6 +261,7 @@ class MegRoom(Rooms):
         nb.clue()
 
     def choose_wall(self):
+        "user selecting a wall to explore"
         while True:
             wall_choice = player_choice("")
             if wall_choice in ['left', 'right', 'behind']:
@@ -275,12 +288,14 @@ class LiRoom(Rooms):
         super().__init__(room)
 
     def right_wall(self):
+        "right wall with items to obtain"
         self.place = "bedside table"
         print(f"On the {self.place}, there is little key.")
         Lk = LittleKey('little key')
         Lk.take()
 
     def choose_wall(self):
+        "user selcts which wall to explore"
         while True:
             wall_choice = player_choice("")
             if wall_choice in ['left', 'front', 'behind']:
