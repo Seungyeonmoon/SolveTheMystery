@@ -3,8 +3,8 @@
 # Nov.25/2019
 # rooms for the game
 
-import inventory
-from inventory import *
+# import inventory
+# from inventory import *
 import sys
 
 rooms = ["dining room",
@@ -39,11 +39,8 @@ def choose_room():
             elif room_choice == "lilian's room":
                 rm = Rooms(room_choice)
                 rm.unlock()
-                sk = inventory.SilverKey('silver key')
+                sk = SilverKey('silver key')
                 sk.use()
-                # rm.room_wall()
-                # Lr = LiRoom(room_choice)
-                # Lr.choose_wall()
             elif room_choice == "dining room":
                 dr = DineRoom(room_choice)
                 dr.nothing()
@@ -52,9 +49,6 @@ def choose_room():
                 rm.unlock()
                 gk = GoldenKey('golden key')
                 gk.use()
-                rm.room_wall()
-                Lo = LiOffice(room_choice)
-                Lo.choose_wall()
             elif room_choice == "kitchen":
                 rm = Rooms(room_choice)
                 rm.room_wall()
@@ -65,8 +59,6 @@ def choose_room():
                 rm.unlock()
                 bk = BronzeKey('bronze key')
                 bk.use()
-                jt = Outside(room_choice)
-                jt.just_there()
             elif room_choice == "jay's room":
                 rm = Rooms(room_choice)
                 rm.room_wall()
@@ -105,12 +97,12 @@ class Rooms:
     def unlock(self):
         print("You need to unlock the door to go in.")
         print("Use an item?")
-    #     print_items()
-    #
-    # def print_items(self):
-    #     """printing inventory in the right format"""
-    #     for items in inventory:
-    #         print(f"- {items.upper()}")
+        print_items()
+
+    def print_items(self):
+        """printing inventory in the right format"""
+        for items in inventory:
+            print(f"- {items.upper()}")
 
     def room_wall(self):
         """prints out the list of walls"""
@@ -126,13 +118,30 @@ class LiOffice(Rooms):
         super().__init__(room)
 
     def front_wall(self):
-        "front wall"
+        """front wall"""
         self.place = "fireplace"
         print(f"You are infront of the {self.place}.")
         print("Use an item to turn off the fire.")
+        rm = Rooms("lilian's office")
+        rm.print_items()
+
+    def right_wall(self):
+        """right wall"""
+        self.place = "safe"
+        print(f"You are infront of the {self.place}.")
+        print("Enter in the password.")
+        while True:
+            print("Type 'back' to go back.")
+            password = player_choice("")
+            if password == 'back':
+                break
+            elif password == 'gjkh':
+                print("you open the safe and find a bronze key.")
+            else:
+                print("That is not the password.")
 
     def choose_wall(self):
-        "user selecting the wall"
+        """user selecting the wall"""
         while True:
             wall_choice = player_choice("")
             if wall_choice in ['left', 'right', 'behind']:
@@ -184,7 +193,6 @@ class Kitchen(Rooms):
         self.place = "cabinet"
         print(f"You are infront of the {self.place}")
         print("Use an item to open.")
-        # super().print_items()
         Lk = LittleKey('little key')
         Lk.use()
 
@@ -199,8 +207,11 @@ class Kitchen(Rooms):
     def choose_wall(self):
         while True:
             print("Choose a wall:")
+            print("Type 'back to go back.")
             wall_choice = player_choice("")
-            if wall_choice == 'left':
+            if wall_choice == 'back':
+                break
+            elif wall_choice == 'left':
                 self.left_wall()
             elif wall_choice == "right":
                 self.right_wall()
@@ -313,7 +324,7 @@ class LiRoom(Rooms):
 
 from map import ViewMap
 
-inventory = ['blueprint', 'silver key']
+inventory = ['blueprint', 'silver key', 'golden key', 'filled kettle']
 
 
 def collect(item):
@@ -386,8 +397,9 @@ class SilverKey(Obtainable):
             elif item_choice in inventory:
                 if item_choice == "silver key":
                     print("You open the door.")
-                    room_wall()
-                    Lr = LiRoom(room_choice)
+                    rm = Rooms("lilian's room")
+                    rm.room_wall()
+                    Lr = LiRoom("lilian's room")
                     Lr.choose_wall()
                 else:
                     print("That is the wrong item!")
@@ -411,6 +423,7 @@ class LittleKey(Obtainable):
         collect(self.item)
 
     def use(self):
+        print_items()
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -419,6 +432,9 @@ class LittleKey(Obtainable):
             elif item_choice in inventory:
                 if item_choice == "little key":
                     print("You open the cabinet door.")
+                    print("In it, there is a golden key.")
+                    gk = GoldenKey('golden key')
+                    gk.take()
                     break
                 else:
                     print("That is the wrong item!")
@@ -438,15 +454,17 @@ class BronzeKey(Obtainable):
         collect(self.item)
 
     def use(self):
+        print_items()
         while True:
-            print("Type 'back to go back.")
+            print("Type 'back' to go back.")
             item_choice = player_choice("")
             if item_choice == 'back':
                 break
             elif item_choice in inventory:
                 if item_choice == "bronze key":
                     print("You open the door and step outside.")
-                    break
+                    jt = Outside(room_choice)
+                    jt.just_there()
                 else:
                     print("That is the wrong item!")
             else:
@@ -473,6 +491,10 @@ class GoldenKey(Obtainable):
             elif item_choice in inventory:
                 if item_choice == "golden key":
                     print("You open the door.")
+                    rm = Rooms("lilian's office")
+                    rm.room_wall()
+                    Lo = LiOffice("lilian's office")
+                    Lo.choose_wall()
                 else:
                     print("That is the wrong item!")
             else:
@@ -521,7 +543,8 @@ class FilledKettle(Obtainable):
                 break
             elif item_choice in inventory:
                 if item_choice == "filled kettle":
-                    print("You turn off the fire.")
+                    print("You turn off the fire and find a burnt note with"
+                    "letters 'gjkh'. Those look like a password of some kind.")
                 else:
                     print("That is the wrong item!")
             else:
