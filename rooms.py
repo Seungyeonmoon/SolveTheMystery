@@ -124,6 +124,8 @@ class LiOffice(Rooms):
         print("Use an item to turn off the fire.")
         rm = Rooms("lilian's office")
         rm.print_items()
+        fk = FilledKettle('filled kettle')
+        fk.use()
 
     def right_wall(self):
         """right wall"""
@@ -536,15 +538,15 @@ class FilledKettle(Obtainable):
         collect('filled kettle')
 
     def use(self):
+        print("Type 'back' to go back.")
         while True:
-            print("Type 'back' to go back.")
             item_choice = player_choice("")
             if item_choice == 'back':
                 break
             elif item_choice in inventory:
                 if item_choice == "filled kettle":
-                    print("You turn off the fire and find a burnt note with"
-                    "letters 'gjkh'. Those look like a password of some kind.")
+                    print("You turn off the fire and find a burnt note with "
+                    "letters 'gjkh'. It looks like a password of some kind.")
                 else:
                     print("That is the wrong item!")
             else:
