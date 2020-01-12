@@ -6,6 +6,7 @@
 # import inventory
 # from inventory import *
 import sys
+from map import ViewMap
 
 rooms = ["dining room",
          "kitchen",
@@ -323,7 +324,6 @@ class LiRoom(Rooms):
 
 # ----------------- inventory --------------------
 
-from map import ViewMap
 
 inventory = ['blueprint', 'silver key', 'golden key', 'filled kettle']
 
@@ -527,6 +527,7 @@ class Kettle(Obtainable):
             else:
                 print("You have not found the item yet.")
 
+
 class FilledKettle(Obtainable):
     def __init__(self, item):
         super().__init__(item)
@@ -578,6 +579,7 @@ class Bucket(Obtainable):
                     print("That is the wrong item!")
             else:
                 print("You have not found the item yet.")
+
 
 class Bottle(Obtainable):
     def __init__(self, item):
