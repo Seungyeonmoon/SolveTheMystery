@@ -163,7 +163,6 @@ class DineRoom(Rooms):
     def nothing(self):
         "there is nothing in this room"
         print("There is nothing to be found in the dining room.")
-        sys.exit()
 
 
 class Kitchen(Rooms):
@@ -257,7 +256,7 @@ class JayRoom(Rooms):
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "right":
                 self.right_wall()
-                break
+                sys.exit()
             else:
                 print("That is not one of the options.")
 
@@ -644,4 +643,4 @@ class Notebook(Obtainable):
             print("That is the wrong item!")
 
 
-choose_room()
+# choose_room()

@@ -4,7 +4,6 @@
 # Menu for the game
 
 import sys
-import inventory
 import rooms
 from map import Start
 

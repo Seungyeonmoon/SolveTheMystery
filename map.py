@@ -21,7 +21,7 @@ The suspects are Jay, Megan, and Abriella.
 You inspect her body and you find out that she was poisoned.
 With farther inspection, find a silver key in her pocket.
 Start exploring the masion to determine the murderer.
-Find clues in the dining room.
+Find clues in Jay's room.
 """
         print(self.intro)
 
