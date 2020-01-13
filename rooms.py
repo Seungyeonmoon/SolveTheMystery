@@ -23,10 +23,20 @@ wall = {"left": "left wall",
 
 
 def choose_room():
-    """user selects which room to go to"""
-    print_rooms()
-    print("Type 'back' to go to main menu.")
+    """user selects which room to go to
+    rm is rooms
+    sk is silver key
+    dr is dining room
+    gk is golden key
+    kn is kitchen
+    bk is bronze key
+    jr is jay's room
+    mg is megan's room
+    ab is abriella's room
+    """
     while True:
+        print_rooms()
+        print("Type 'back' to go to main menu.")
         print("Which room would you like to explore?")
         room_choice = player_choice("")
         if room_choice == 'back':
