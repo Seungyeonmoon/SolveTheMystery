@@ -3,8 +3,6 @@
 # Nov.25/2019
 # rooms for the game
 
-# import inventory
-# from inventory import *
 import sys
 from map import ViewMap
 
@@ -66,6 +64,8 @@ def choose_room():
                 jr = JayRoom(room_choice)
                 jr.choose_wall()
             elif room_choice == "megan's room":
+                rm = Rooms(room_choice)
+                rm.room_wall()
                 mg = MegRoom(room_choice)
                 mg.choose_wall()
             elif room_choice == "abriella's room":
@@ -140,17 +140,26 @@ class LiOffice(Rooms):
                 break
             elif password == 'gjkh':
                 print("you open the safe and find a bronze key.")
+                bk = BronzeKey('bronze key')
+                bk.take()
             else:
                 print("That is not the password.")
 
     def choose_wall(self):
         """user selecting the wall"""
         while True:
+            print("Choose a wall:")
+            print("Type 'back to go back.")
             wall_choice = player_choice("")
-            if wall_choice in ['left', 'right', 'behind']:
+            if wall_choice == 'back':
+                break
+            elif wall_choice in ['left', 'behind']:
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "front":
                 self.front_wall()
+                break
+            elif wall_choice == "right":
+                self.right_wall()
                 break
             else:
                 print("That is not one of the options.")
@@ -193,7 +202,7 @@ class Kitchen(Rooms):
     def left_wall(self):
         "left wall with items to collect"
         self.place = "cabinet"
-        print(f"You are infront of the {self.place}")
+        print(f"You are infront of the {self.place}.")
         print("Use an item to open.")
         Lk = LittleKey('little key')
         Lk.use()
@@ -235,6 +244,8 @@ class Outside(Rooms):
         self.place = "well"
         print("You look down into the well and find something shiny.")
         print("Use an item to pull the water up.")
+        bt = Bucket('bucket')
+        bt.use()
 
 
 class JayRoom(Rooms):
@@ -252,8 +263,12 @@ class JayRoom(Rooms):
     def choose_wall(self):
         "user selcting wall"
         while True:
+            print("Choose a wall:")
+            print("Type 'back to go back.")
             wall_choice = player_choice("")
-            if wall_choice in ['left', 'front', 'behind']:
+            if wall_choice == 'back':
+                break
+            elif wall_choice in ['left', 'front', 'behind']:
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "right":
                 self.right_wall()
@@ -271,18 +286,22 @@ class MegRoom(Rooms):
         "front wall with items to collect"
         self.place = "bed"
         print("You are infront of the bed."
-        "You look under it and find a notebook")
+        "You look under it and find a notebook.")
         nb = Notebook('notebook')
         nb.clue()
 
     def choose_wall(self):
         "user selecting a wall to explore"
         while True:
+            print("Choose a wall:")
+            print("Type 'back to go back.")
             wall_choice = player_choice("")
-            if wall_choice in ['left', 'right', 'behind']:
+            if wall_choice == 'back':
+                break
+            elif wall_choice in ['left', 'right', 'behind']:
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "front":
-                self.right_wall()
+                self.front_wall()
                 break
             else:
                 print("That is not one of the options.")
@@ -312,8 +331,12 @@ class LiRoom(Rooms):
     def choose_wall(self):
         "user selcts which wall to explore"
         while True:
+            print("Choose a wall:")
+            print("Type 'back to go back.")
             wall_choice = player_choice("")
-            if wall_choice in ['left', 'front', 'behind']:
+            if wall_choice == 'back':
+                break
+            elif wall_choice in ['left', 'front', 'behind']:
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "right":
                 self.right_wall()
@@ -325,7 +348,7 @@ class LiRoom(Rooms):
 # ----------------- inventory --------------------
 
 
-inventory = ['blueprint', 'silver key', 'golden key', 'filled kettle']
+inventory = ['blueprint', 'silver key']
 
 
 def collect(item):
@@ -358,15 +381,6 @@ def choose_item():
                 print("You can view map by typing in 'blueprint'")
         else:
             print("Type 'back' to go to main menu.")
-
-
-def player_choice(text):
-    """turn user input and convert it to lowercase"""
-    try:
-        action_choice = input(text)
-        return action_choice.lower()
-    except NameError:
-        print("Invalid input. Please try again. ")
 
 
 class Obtainable:
@@ -455,7 +469,6 @@ class BronzeKey(Obtainable):
         collect(self.item)
 
     def use(self):
-        print_items()
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -464,7 +477,7 @@ class BronzeKey(Obtainable):
             elif item_choice in inventory:
                 if item_choice == "bronze key":
                     print("You open the door and step outside.")
-                    jt = Outside(room_choice)
+                    jt = Outside('outside')
                     jt.just_there()
                 else:
                     print("That is the wrong item!")
@@ -547,6 +560,7 @@ class FilledKettle(Obtainable):
                 if item_choice == "filled kettle":
                     print("You turn off the fire and find a burnt note with "
                     "letters 'gjkh'. It looks like a password of some kind.")
+                    break
                 else:
                     print("That is the wrong item!")
             else:
@@ -571,32 +585,14 @@ class Bucket(Obtainable):
             if item_choice == 'back':
                 break
             elif item_choice in inventory:
-                if item_choice == "kettle":
+                if item_choice == "bucket":
                     print("You pull up the water.")
-                    print("when pulled up, a bottle with liquid, with inspection, it is poison")
+                    print("when pulled up, a bottle with liquid, with inspection, it is diltiazem.")
                     break
                 else:
                     print("That is the wrong item!")
             else:
                 print("You have not found the item yet.")
-
-
-class Bottle(Obtainable):
-    def __init__(self, item):
-        super().__init__(item)
-        # self.name = "bottle"
-        # self.find = "well"
-        # self.use = "clue"
-
-    def take(self):
-        print(f"You take the {self.item}.")
-        collect(self.item)
-
-    def clue(self):
-        if self.item == "bottle":
-            print("It contains poison.")
-        else:
-            print("That is the wrong item!")
 
 
 class Receipt(Obtainable):
@@ -613,7 +609,7 @@ class Receipt(Obtainable):
     def clue(self):
         if self.item == "receipt":
             print("The receipt reads that Jay bought 'diltiazem' medication 4 days ago.")
-            print("Diltiazem: medication for high blood pressure, when"
+            print("Diltiazem: medication for high blood pressure, when "
             "consumed by an individual in large quantities without high blood"
             "pressure, can cause heart failure.")
         else:
@@ -643,6 +639,3 @@ class Notebook(Obtainable):
             print("Abriella: Youngest of the cousins, in her 20s, has Asthma")
         else:
             print("That is the wrong item!")
-
-
-# choose_room()

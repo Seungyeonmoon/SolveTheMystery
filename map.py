@@ -36,7 +36,3 @@ class ViewMap:
                               | Abriella's room | Lilian's room |
         """
         print(self.bp_print)
-
-
-# blueprint = ViewMap()
-# blueprint.print_map()
