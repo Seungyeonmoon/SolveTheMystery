@@ -282,7 +282,7 @@ class JayRoom(Rooms):
                 print(f"There is nothing on {wall_choice} wall.")
             elif wall_choice == "right":
                 self.right_wall()
-                sys.exit()
+                # sys.exit()
             else:
                 print("That is not one of the options.")
 
