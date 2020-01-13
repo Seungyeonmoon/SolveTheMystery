@@ -293,7 +293,7 @@ class MegRoom(Rooms):
         super().__init__(room)
 
     def front_wall(self):
-        "front wall with items to collect"
+        """front wall with items to collect"""
         self.place = "bed"
         print("You are infront of the bed."
         "You look under it and find a notebook.")
@@ -301,7 +301,7 @@ class MegRoom(Rooms):
         nb.clue()
 
     def choose_wall(self):
-        "user selecting a wall to explore"
+        """user selecting a wall to explore"""
         while True:
             print("Choose a wall:")
             print("Type 'back to go back.")
@@ -362,6 +362,7 @@ inventory = ['blueprint', 'silver key']
 
 
 def collect(item):
+    """collecting items and adding them into inventory"""
     inventory.append(item)
     print(f'You now have: {inventory}')
 
@@ -394,6 +395,7 @@ def choose_item():
 
 
 class Obtainable:
+    """items that are obtainable"""
     def __init__(self, item):
         self.item = item
 
@@ -403,17 +405,21 @@ class Obtainable:
 
 
 class SilverKey(Obtainable):
+    """silver key that is obtainable"""
     def __init__(self, item):
+        """initiating silver key"""
         super().__init__(item)
         # self.item = "silver key"
         # self.find = "given"
         # self.use = "lilian's room"
 
     def take(self):
+        """take the silver key"""
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the silver key"""
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -436,18 +442,22 @@ class SilverKey(Obtainable):
 
 
 class LittleKey(Obtainable):
+    """obtainable little key"""
     def __init__(self, item):
+        """initiating little key"""
         super().__init__(item)
         # self.item = "little key"
         # self.find = "bedside table"
         # self.place = "cabinet"
 
     def take(self):
+        """taking the little key"""
         # print(f"On the {self.place}, there is a {self.item}.")
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the little key"""
         print_items()
         while True:
             print("Type 'back' to go back.")
@@ -468,6 +478,7 @@ class LittleKey(Obtainable):
 
 
 class BronzeKey(Obtainable):
+    """obtainable bronze key"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "bronze key"
@@ -475,10 +486,12 @@ class BronzeKey(Obtainable):
         # self.use = "back door"
 
     def take(self):
+        """taking the bronze key"""
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the bronze key"""
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -496,6 +509,7 @@ class BronzeKey(Obtainable):
 
 
 class GoldenKey(Obtainable):
+    """obtainable golden key"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "golden key"
@@ -503,10 +517,12 @@ class GoldenKey(Obtainable):
         # self.use = "lilian's office"
 
     def take(self):
+        """taking the golden key"""
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the golden key"""
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -526,6 +542,7 @@ class GoldenKey(Obtainable):
 
 
 class Kettle(Obtainable):
+    """obtainable kettle"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "kettle"
@@ -533,10 +550,12 @@ class Kettle(Obtainable):
         # self.use = "fireplace"
 
     def take(self):
+        """taking the kettle"""
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the kettle"""
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -552,15 +571,18 @@ class Kettle(Obtainable):
 
 
 class FilledKettle(Obtainable):
+    """obtainable filled kettle"""
     def __init__(self, item):
         super().__init__(item)
 
     def take(self):
+        """taking the filled kettle"""
         print("You fill the kettle with water.")
         inventory.remove('kettle')
         collect('filled kettle')
 
     def use(self):
+        """using the filled kettle"""
         print("Type 'back' to go back.")
         while True:
             item_choice = player_choice("")
@@ -578,6 +600,7 @@ class FilledKettle(Obtainable):
 
 
 class Bucket(Obtainable):
+    """obtainable bucket"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "bucket"
@@ -585,10 +608,12 @@ class Bucket(Obtainable):
         # self.use = "well"
 
     def take(self):
+        """taking the bucket"""
         print(f"You take the {self.item}.")
         collect(self.item)
 
     def use(self):
+        """using the bucket"""
         while True:
             print("Type 'back' to go back.")
             item_choice = player_choice("")
@@ -606,6 +631,7 @@ class Bucket(Obtainable):
 
 
 class Receipt(Obtainable):
+    """obtainable receipt"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "receipt"
@@ -613,10 +639,12 @@ class Receipt(Obtainable):
         # self.use = "clue"
 
     def take(self):
+        """taking the receipt"""
         print(f"You read the {self.item}.")
         collect(self.item)
 
     def clue(self):
+        """clue obtained by the receipt"""
         if self.item == "receipt":
             print("The receipt reads that Jay bought 'diltiazem' medication 4 days ago.")
             print("Diltiazem: medication for high blood pressure, when "
@@ -630,6 +658,7 @@ class Receipt(Obtainable):
 
 
 class Notebook(Obtainable):
+    """obtainable notebook"""
     def __init__(self, item):
         super().__init__(item)
         # self.name = "receipt"
@@ -637,10 +666,12 @@ class Notebook(Obtainable):
         # self.use = "clue"
 
     def take(self):
+        """taking the notebook"""
         print(f"You read the {self.item}.")
         collect(self.item)
 
     def clue(self):
+        """clues in the notebook"""
         if self.item == "notebook":
             print("Megan wrote about family members.")
             print("Lilian: old, but healty, had 3 siblings, parents of Jay, Megan, Abriella, rich")
