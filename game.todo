@@ -46,6 +46,6 @@ Beta Testing (user 3):
     ☐ comments: couldn't find way to end the game
 
 Beta testing results:
-    ☐ include directions to type in options
-    ☐ make room choice appear every time
-    ☐ make directions to win/end the game more clear
+    ✔ include directions to type in options @done(2020-01-12 22:36) @project(Beta testing results)
+    ✔ make room choice appear every time @done(2020-01-12 22:36) @project(Beta testing results)
+    ✔ make directions to win/end the game more clear @done(2020-01-12 22:36) @project(Beta testing results)
